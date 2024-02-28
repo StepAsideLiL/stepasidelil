@@ -8,16 +8,14 @@ export default function Page() {
         <p>A JavaScript and Nextjs Developer from Bangladesh</p>
       </section>
 
-      <section className="flex justify-center">
-        <div className="w-32">
-          <Image
-            src={"/profile-avater.png"}
-            alt="Profile Avatar"
-            width={1000}
-            height={1000}
-            className="w-full h-full object-cover"
-          />
-        </div>
+      <section className="w-32 mx-auto">
+        <Image
+          src={"/profile-avater.png"}
+          alt="Profile Avatar"
+          width={1000}
+          height={1000}
+          className="w-full h-full object-cover"
+        />
       </section>
     </main>
   );
