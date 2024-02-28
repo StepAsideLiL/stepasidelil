@@ -7,7 +7,7 @@
 
 <p align="left"> <a href="https://twitter.com/stepasidelil" target="blank"><img src="https://img.shields.io/twitter/follow/stepasidelil?logo=twitter&style=for-the-badge" alt="stepasidelil" /></a> </p>
 
-- 🔭 I’m currently working on [Effects](https://effects-sand.vercel.app/)
+- 🔭 I’m currently working on **[Effects](https://effects-sand.vercel.app/)**
 
 - 🌱 I’m currently learning **Nextjs, Node CLI and React Native**
 
