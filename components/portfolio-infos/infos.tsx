@@ -125,4 +125,24 @@ export const skills = {
       icon: "",
     },
   ],
+  softSkills: [
+    {
+      title: "Communication",
+    },
+    {
+      title: "Leadership",
+    },
+    {
+      title: "Research",
+    },
+    {
+      title: "Document Writing",
+    },
+    {
+      title: "Project Planning",
+    },
+    {
+      title: "Presentation",
+    },
+  ],
 };
