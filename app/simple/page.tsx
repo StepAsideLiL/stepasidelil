@@ -35,55 +35,81 @@ export default function Page() {
       {/* About End */}
 
       {/* Skills */}
-      <section className="mx-auto max-w-4xl space-y-3 pt-40">
+      <section className="mx-auto max-w-4xl space-y-6 pt-40">
         <h1 className="text-3xl font-semibold">Skills</h1>
 
-        {/* Expertise skills */}
-        <section className="space-y-3">
-          <div className="flex items-end">
-            <h1 className="text-lg font-semibold">Expertise</h1>
-            <Separator className="flex-1 bg-foreground" />
+        {/* Hard skills */}
+        <section className="grid grid-cols-4 gap-2">
+          <div className="col-span-1">
+            <h2 className="text-xl font-medium">Hard Skills</h2>
           </div>
 
-          <div className="flex flex-wrap gap-2">
-            {skills.experties.map((skill, i) => (
-              <p key={i}>
-                <span>{skill.title} </span>
-                {i !== skills.experties.length - 1 && <span>&bull;</span>}
-              </p>
-            ))}
+          <div className="col-span-3 space-y-4">
+            {/* Expertise skills */}
+            <section className="space-y-3">
+              <div className="flex items-end">
+                <h1 className="text-lg font-semibold">Expertise</h1>
+                <Separator className="flex-1 bg-foreground" />
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                {skills.experties.map((skill, i) => (
+                  <p key={i}>
+                    <span>{skill.title} </span>
+                    {i !== skills.experties.length - 1 && <span>&bull;</span>}
+                  </p>
+                ))}
+              </div>
+            </section>
+
+            {/* Comfortable skills */}
+            <section className="space-y-3">
+              <div className="flex items-end">
+                <h1 className="text-lg font-semibold">Comfortable</h1>
+                <Separator className="flex-1 bg-foreground" />
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                {skills.comfortable.map((skill, i) => (
+                  <p key={i}>
+                    <span>{skill.title} </span>
+                    {i !== skills.comfortable.length - 1 && <span>&bull;</span>}
+                  </p>
+                ))}
+              </div>
+            </section>
+
+            {/* Familiar skills */}
+            <section className="space-y-3">
+              <div className="flex items-end">
+                <h1 className="text-lg font-semibold">Familiar</h1>
+                <Separator className="flex-1 bg-foreground" />
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                {skills.familiar.map((skill, i) => (
+                  <p key={i}>
+                    <span>{skill.title} </span>
+                    {i !== skills.familiar.length - 1 && <span>&bull;</span>}
+                  </p>
+                ))}
+              </div>
+            </section>
           </div>
         </section>
+        {/* Hard skills End */}
 
-        {/* Comfortable skills */}
-        <section className="space-y-3">
-          <div className="flex items-end">
-            <h1 className="text-lg font-semibold">Comfortable</h1>
-            <Separator className="flex-1 bg-foreground" />
+        <Separator />
+
+        <section className="grid grid-cols-4 gap-2">
+          <div className="col-span-1">
+            <h2 className="text-xl font-medium">Soft Skills</h2>
           </div>
-
-          <div className="flex flex-wrap gap-2">
-            {skills.comfortable.map((skill, i) => (
+          <div className="col-span-3 flex flex-wrap gap-2">
+            {skills.softSkills.map((skill, i) => (
               <p key={i}>
                 <span>{skill.title} </span>
-                {i !== skills.comfortable.length - 1 && <span>&bull;</span>}
-              </p>
-            ))}
-          </div>
-        </section>
-
-        {/* Familiar skills */}
-        <section className="space-y-3">
-          <div className="flex items-end">
-            <h1 className="text-lg font-semibold">Familiar</h1>
-            <Separator className="flex-1 bg-foreground" />
-          </div>
-
-          <div className="flex flex-wrap gap-2">
-            {skills.familiar.map((skill, i) => (
-              <p key={i}>
-                <span>{skill.title} </span>
-                {i !== skills.familiar.length - 1 && <span>&bull;</span>}
+                {i !== skills.softSkills.length - 1 && <span>&bull;</span>}
               </p>
             ))}
           </div>
