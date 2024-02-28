@@ -51,6 +51,14 @@ export const skills = {
   ],
   comfortable: [
     {
+      title: "Prisma",
+      icon: "",
+    },
+    {
+      title: "SQL",
+      icon: "",
+    },
+    {
       title: "Redux",
       icon: "",
     },
@@ -97,7 +105,7 @@ export const skills = {
       icon: "",
     },
     {
-      title: "Electron",
+      title: "Electronjs",
       icon: "",
     },
     {
