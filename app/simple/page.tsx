@@ -1,4 +1,4 @@
-import { about } from "@/components/portfolio-infos/infos";
+import { about, skills } from "@/components/portfolio-infos/infos";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
 
@@ -33,6 +33,63 @@ export default function Page() {
         <p className="text-xl md:text-3xl">{about}</p>
       </section>
       {/* About End */}
+
+      {/* Skills */}
+      <section className="mx-auto max-w-4xl space-y-3 pt-40">
+        <h1 className="text-3xl font-semibold">Skills</h1>
+
+        {/* Expertise skills */}
+        <section className="space-y-3">
+          <div className="flex items-end">
+            <h1 className="text-lg font-semibold">Expertise</h1>
+            <Separator className="flex-1 bg-foreground" />
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {skills.experties.map((skill, i) => (
+              <p key={i}>
+                <span>{skill.title} </span>
+                {i !== skills.experties.length - 1 && <span>&bull;</span>}
+              </p>
+            ))}
+          </div>
+        </section>
+
+        {/* Comfortable skills */}
+        <section className="space-y-3">
+          <div className="flex items-end">
+            <h1 className="text-lg font-semibold">Comfortable</h1>
+            <Separator className="flex-1 bg-foreground" />
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {skills.comfortable.map((skill, i) => (
+              <p key={i}>
+                <span>{skill.title} </span>
+                {i !== skills.comfortable.length - 1 && <span>&bull;</span>}
+              </p>
+            ))}
+          </div>
+        </section>
+
+        {/* Familiar skills */}
+        <section className="space-y-3">
+          <div className="flex items-end">
+            <h1 className="text-lg font-semibold">Familiar</h1>
+            <Separator className="flex-1 bg-foreground" />
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {skills.familiar.map((skill, i) => (
+              <p key={i}>
+                <span>{skill.title} </span>
+                {i !== skills.familiar.length - 1 && <span>&bull;</span>}
+              </p>
+            ))}
+          </div>
+        </section>
+      </section>
+      {/* Skills End */}
     </main>
   );
 }
