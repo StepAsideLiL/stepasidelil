@@ -5,8 +5,10 @@ export default function Page() {
     <main className="container min-h-screen py-20 space-y-10">
       {/* Short Introduction */}
       <section className="text-center space-y-2">
-        <h1 className="text-6xl font-medium">Hi 👋, I am Rifat Khan</h1>
-        <p className="text-xl text-muted-foreground">
+        <h1 className="text-3xl md:text-6xl font-medium">
+          Hi 👋, I am Rifat Khan
+        </h1>
+        <p className="md:text-xl text-base text-muted-foreground">
           A JavaScript and Nextjs Developer from Bangladesh
         </p>
       </section>
@@ -26,7 +28,7 @@ export default function Page() {
 
       {/* About */}
       <section className="max-w-4xl mx-auto">
-        <p className="text-3xl">
+        <p className="md:text-3xl text-xl">
           A passionate web developer building cool projects with Nextjs and
           other JavaScript-based libraries. With a background in Engineering, I
           bring well-rounded problem-solving skills for developing websites and
