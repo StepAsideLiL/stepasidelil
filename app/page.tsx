@@ -1,7 +1,7 @@
 export default function Page() {
   return (
-    <main className="min-h-screen py-2">
-      <h1>Hello World</h1>
+    <main className="min-h-screen py-20">
+      <h1 className="text-center">Hi 👋, I am Rifat Khan</h1>
     </main>
   );
 }
