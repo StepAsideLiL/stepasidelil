@@ -1,3 +1,5 @@
+import { about } from "@/components/portfolio-infos/infos";
+import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
 
 export default function Page() {
@@ -28,12 +30,7 @@ export default function Page() {
 
       {/* About */}
       <section className="mx-auto max-w-4xl">
-        <p className="text-xl md:text-3xl">
-          A passionate web developer building cool projects with Nextjs and
-          other JavaScript-based libraries. With a background in Engineering, I
-          bring well-rounded problem-solving skills for developing websites and
-          web apps with a sharp eye for UI/UX design.
-        </p>
+        <p className="text-xl md:text-3xl">{about}</p>
       </section>
       {/* About End */}
     </main>
