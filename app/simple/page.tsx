@@ -1,4 +1,9 @@
-import { about, projects, skills } from "@/components/portfolio-infos/infos";
+import {
+  about,
+  education,
+  projects,
+  skills,
+} from "@/components/portfolio-infos/infos";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -155,6 +160,20 @@ export default function Page() {
         </section>
       </section>
       {/* Projects End */}
+
+      {/* Eduction */}
+      <section className="mx-auto max-w-4xl space-y-6 pt-40">
+        <h1 className="text-3xl font-semibold text-[#00f8ff]">Eduction</h1>
+
+        <section>
+          <p className="text-muted-foreground">{education[0].date}</p>
+          <h3 className="text-xl font-semibold">
+            {`${education[0].degree} in ${education[0].fieldOfStudy}`}
+          </h3>
+          <p className="text-muted-foreground">{education[0].institution}</p>
+        </section>
+      </section>
+      {/* Eduction End */}
     </main>
   );
 }
