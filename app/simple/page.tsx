@@ -2,6 +2,7 @@ import {
   about,
   courses,
   education,
+  interestedTechnologies,
   projects,
   skills,
 } from "@/components/portfolio-infos/infos";
@@ -185,6 +186,20 @@ export default function Page() {
         ))}
       </section>
       {/* Eduction End */}
+
+      {/* Interested In */}
+      <section className="mx-auto max-w-4xl space-y-6 pt-40">
+        <h1 className="text-3xl font-semibold text-[#00f8ff]">
+          Technologies I Am Interested In
+        </h1>
+
+        <section>
+          {interestedTechnologies.map((item, i) => (
+            <p key={i}>{item.title}</p>
+          ))}
+        </section>
+      </section>
+      {/* Interested In End */}
     </main>
   );
 }
