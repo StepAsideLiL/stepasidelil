@@ -137,7 +137,7 @@ export default function Page() {
               <CardHeader>
                 <CardTitle>{item.title}</CardTitle>
                 <CardDescription>
-                  <Link href={item.github} className="hover:underline">
+                  <Link href={item.href} className="hover:underline">
                     GitHub Link
                   </Link>
                 </CardDescription>
