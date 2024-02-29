@@ -1,4 +1,24 @@
+import { SiGithub, SiInstagram, SiX } from "react-icons/si";
+
 export const email = "rifat6633@gmail.com";
+
+export const socialLinks = [
+  {
+    title: "GitHub",
+    icon: <SiGithub size={30} />,
+    href: "https://github.com/stepAsideLiL/",
+  },
+  {
+    title: "Twitter",
+    icon: <SiX size={30} />,
+    href: "https://twitter.com/StepAsideLiL",
+  },
+  {
+    title: "Instagram",
+    icon: <SiInstagram size={30} />,
+    href: "https://www.instagram.com/stepasidelil",
+  },
+];
 
 export const about =
   "A passionate web developer building cool projects with Nextjs and other JavaScript-based libraries. With a background in Engineering, I bring well-rounded problem-solving skills for developing websites and web apps with a sharp eye for UI/UX design.";
