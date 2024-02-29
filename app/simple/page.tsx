@@ -1,6 +1,16 @@
-import { about, skills } from "@/components/portfolio-infos/infos";
+import { about, projects, skills } from "@/components/portfolio-infos/infos";
+import { Badge } from "@/components/ui/badge";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Page() {
   return (
@@ -116,6 +126,35 @@ export default function Page() {
         </section>
       </section>
       {/* Skills End */}
+
+      {/* Projects */}
+      <section className="mx-auto max-w-4xl space-y-6 pt-40">
+        <h1 className="text-3xl font-semibold text-[#00f8ff]">Projects</h1>
+
+        <section className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
+          {projects.map((item, i) => (
+            <Card key={i}>
+              <CardHeader>
+                <CardTitle>{item.title}</CardTitle>
+                <CardDescription>
+                  <Link href={item.github} className="hover:underline">
+                    GitHub Link
+                  </Link>
+                </CardDescription>
+              </CardHeader>
+
+              <CardContent>{item.description}</CardContent>
+
+              <CardFooter className="flex flex-wrap gap-2">
+                {item.technologies.map((tech, i) => (
+                  <Badge key={i}>{tech}</Badge>
+                ))}
+              </CardFooter>
+            </Card>
+          ))}
+        </section>
+      </section>
+      {/* Projects End */}
     </main>
   );
 }
