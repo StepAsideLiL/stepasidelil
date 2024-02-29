@@ -6,7 +6,7 @@ export const socialLinks = [
   {
     title: "GitHub",
     icon: <SiGithub size={30} />,
-    href: "https://github.com/stepAsideLiL/",
+    href: "https://github.com/StepAsideLiL",
   },
   {
     title: "Twitter",
