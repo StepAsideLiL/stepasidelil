@@ -197,3 +197,16 @@ export const education = [
     date: "Feb 2017 - May 2023",
   },
 ];
+
+export const courses = [
+  {
+    institution: "Programming Hero",
+    courseTitle: "Complete Web Development Course With Jhankar Mahbub",
+    date: "Jan 2023 - Aug 2023",
+  },
+  {
+    institution: "Bangladesh Youth Leadership Center",
+    courseTitle: "BYLC Development Sector Career Bootcamp 2022",
+    date: "July 2022 - Aug 2022",
+  },
+];
