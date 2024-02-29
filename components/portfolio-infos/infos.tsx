@@ -187,3 +187,13 @@ export const projects = [
     href: "https://github.com/StepAsideLiL/leitmotiv-academy",
   },
 ];
+
+export const education = [
+  {
+    degree: "Bachelor of Science (B.Sc. engg)",
+    fieldOfStudy: "Electrical and Electronic Engineering",
+    institution: "Jatiya Kabi Kazi Nazrul Islam University",
+    gpa: "3.22 out of 4",
+    date: "Feb 2017 - May 2023",
+  },
+];
