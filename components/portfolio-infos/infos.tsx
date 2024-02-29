@@ -146,3 +146,44 @@ export const skills = {
     },
   ],
 };
+
+export const projects = [
+  {
+    title: "Effects",
+    description:
+      "In this era of web development it seems copy-pasting UI making a come-back. So I decided to compile a handfull of beautiful and cool looking UI which you can copy-paste and customize to your liking.",
+    technologies: ["Nextjs", "Framer Motion"],
+    github: "https://github.com/StepAsideLiL/effects",
+  },
+  {
+    title: "Front Mart",
+    description: "E-commerce website with user profile and admin dashboard.",
+    technologies: ["Nextjs", "Shadcn/ui", "Prisma", "Clerk"],
+    github: "https://github.com/StepAsideLiL/front-mart",
+  },
+  {
+    title: "Tiny Blog",
+    description: "A blogging site like twitter with Rich Text editor.",
+    technologies: ["Nextjs", "Shadcn/ui", "Prisma", "Clerk"],
+    github: "https://github.com/StepAsideLiL/tiny-blog",
+  },
+  {
+    title: "Car or Goat",
+    description: "Pick a card that contains a car so that you can with it.",
+    technologies: ["Nextjs", "Shadcn/ui", "Prisma", "Zustand", "Clerk"],
+    github: "https://github.com/StepAsideLiL/tiny-blog",
+  },
+  {
+    title: "Leitmotiv Academy",
+    description: "",
+    technologies: [
+      "React",
+      "DaisyUI",
+      "Express",
+      "Nodejs",
+      "MongoDB",
+      "Firebase Auth",
+    ],
+    github: "https://github.com/StepAsideLiL/leitmotiv-academy",
+  },
+];
