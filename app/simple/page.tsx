@@ -73,7 +73,7 @@ export default function Page() {
       {/* Contact Info End */}
 
       {/* Skills */}
-      <section className="mx-auto max-w-4xl space-y-6 pt-40">
+      <section className="mx-auto max-w-4xl space-y-6 pt-20">
         <h1 className="text-3xl font-semibold text-[#00f8ff]">Skills</h1>
 
         {/* Hard skills */}
@@ -156,7 +156,7 @@ export default function Page() {
       {/* Skills End */}
 
       {/* Projects */}
-      <section className="mx-auto max-w-4xl space-y-6 pt-40">
+      <section className="mx-auto max-w-4xl space-y-6 pt-20">
         <h1 className="text-3xl font-semibold text-[#00f8ff]">Projects</h1>
 
         <section className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
@@ -185,7 +185,7 @@ export default function Page() {
       {/* Projects End */}
 
       {/* Eduction */}
-      <section className="mx-auto max-w-4xl space-y-6 pt-40">
+      <section className="mx-auto max-w-4xl space-y-6 pt-20">
         <h1 className="text-3xl font-semibold text-[#00f8ff]">
           Education and Courses
         </h1>
@@ -209,7 +209,7 @@ export default function Page() {
       {/* Eduction End */}
 
       {/* Interested In */}
-      <section className="mx-auto max-w-4xl space-y-6 py-40">
+      <section className="mx-auto max-w-4xl space-y-6 py-20">
         <h1 className="text-3xl font-semibold text-[#00f8ff]">
           Technologies I Will Be Learning
         </h1>
