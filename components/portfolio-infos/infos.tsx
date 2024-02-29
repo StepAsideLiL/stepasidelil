@@ -124,6 +124,10 @@ export const skills = {
       title: "AWS",
       icon: "",
     },
+    {
+      title: "WordPress",
+      icon: "",
+    },
   ],
   softSkills: [
     {
