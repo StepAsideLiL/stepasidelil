@@ -163,7 +163,7 @@ export default function Page() {
 
       {/* Eduction */}
       <section className="mx-auto max-w-4xl space-y-6 pt-40">
-        <h1 className="text-3xl font-semibold text-[#00f8ff]">Eduction</h1>
+        <h1 className="text-3xl font-semibold text-[#00f8ff]">Education</h1>
 
         <section>
           <p className="text-muted-foreground">{education[0].date}</p>
