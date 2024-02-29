@@ -55,7 +55,11 @@ export default function Page() {
       {/* About End */}
 
       {/* Contact Info */}
-      <section className="mx-auto flex max-w-4xl flex-col items-center justify-center gap-10 space-y-6 pt-20 lg:flex-row">
+      <section className="mx-auto max-w-4xl space-y-6 pt-20">
+        <h1 className="text-3xl font-semibold text-[#00f8ff]">
+          Contact Me Through
+        </h1>
+
         <CopyEmail className="text-xl" />
 
         <div className="flex gap-5">
