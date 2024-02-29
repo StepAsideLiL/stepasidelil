@@ -1,5 +1,6 @@
 import {
   about,
+  courses,
   education,
   projects,
   skills,
@@ -163,7 +164,9 @@ export default function Page() {
 
       {/* Eduction */}
       <section className="mx-auto max-w-4xl space-y-6 pt-40">
-        <h1 className="text-3xl font-semibold text-[#00f8ff]">Education</h1>
+        <h1 className="text-3xl font-semibold text-[#00f8ff]">
+          Education and Courses
+        </h1>
 
         <section>
           <p className="text-muted-foreground">{education[0].date}</p>
@@ -172,6 +175,14 @@ export default function Page() {
           </h3>
           <p className="text-muted-foreground">{education[0].institution}</p>
         </section>
+
+        {courses.map((item, i) => (
+          <section key={i}>
+            <p className="text-muted-foreground">{item.date}</p>
+            <h3 className="text-xl font-semibold">{item.courseTitle}</h3>
+            <p className="text-muted-foreground">{item.institution}</p>
+          </section>
+        ))}
       </section>
       {/* Eduction End */}
     </main>
