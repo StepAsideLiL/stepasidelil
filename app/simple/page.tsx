@@ -41,7 +41,7 @@ export default function Page() {
         {/* Hard skills */}
         <section className="grid grid-cols-4 gap-2">
           <div className="col-span-1">
-            <h2 className="text-xl font-medium">Hard Skills</h2>
+            <h2 className="text-xl font-semibold">Hard Skills</h2>
           </div>
 
           <div className="col-span-3 space-y-4">
@@ -103,7 +103,7 @@ export default function Page() {
 
         <section className="grid grid-cols-4 gap-2">
           <div className="col-span-1">
-            <h2 className="text-xl font-medium">Soft Skills</h2>
+            <h2 className="text-xl font-semibold">Soft Skills</h2>
           </div>
           <div className="col-span-3 flex flex-wrap gap-2">
             {skills.softSkills.map((skill, i) => (
