@@ -12,6 +12,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import Link from "next/link";
 
 export function ModeToggle() {
   const { setTheme } = useTheme();
@@ -61,5 +62,44 @@ export function CopyEmail({ className }: { className?: string }) {
       <p>{email}</p>
       <span>{!copied ? <Copy size={16} /> : <Check size={16} />}</span>
     </div>
+  );
+}
+
+export function Menus() {
+  const navMenus = [
+    {
+      title: "About",
+      href: "#about",
+    },
+    {
+      title: "Contact",
+      href: "#contact",
+    },
+    {
+      title: "Skills",
+      href: "#skills",
+    },
+    {
+      title: "Projects",
+      href: "#projects",
+    },
+    {
+      title: "Education",
+      href: "#education",
+    },
+    {
+      title: "Interested",
+      href: "#interested",
+    },
+  ];
+
+  return (
+    <nav className="flex items-center gap-2">
+      {navMenus.map((menu) => (
+        <Link key={menu.href} href={`/simple${menu.href}`}>
+          {menu.title}
+        </Link>
+      ))}
+    </nav>
   );
 }

@@ -1,39 +1,17 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Menus } from "./client-components";
 
 export function SimplePageNavbar() {
-  const navMenus = [
-    {
-      title: "About",
-      href: "#about",
-    },
-    {
-      title: "Contact",
-      href: "#contact",
-    },
-    {
-      title: "Skills",
-      href: "#skills",
-    },
-    {
-      title: "Projects",
-      href: "#projects",
-    },
-    {
-      title: "Education",
-      href: "#education",
-    },
-    {
-      title: "Interested",
-      href: "#interested",
-    },
-  ];
-
   return (
-    <header className="flex items-center justify-center py-5">
-      <Button variant={"secondary"}>
-        <Link href={"/"}>Styled Page</Link>
-      </Button>
+    <header>
+      <div className="hidden items-center justify-center gap-2 py-5 md:flex">
+        <Menus />
+
+        <Button variant={"secondary"}>
+          <Link href={"/"}>Styled Page</Link>
+        </Button>
+      </div>
     </header>
   );
 }
