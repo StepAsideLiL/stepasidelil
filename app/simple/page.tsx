@@ -5,8 +5,10 @@ import {
   interestedTechnologies,
   projects,
   skills,
+  socialLinks,
 } from "@/components/portfolio-infos/infos";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -16,6 +18,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import CopyEmail from "@/components/uis/copy-email";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -50,6 +53,20 @@ export default function Page() {
         <p className="text-xl md:text-3xl">{about}</p>
       </section>
       {/* About End */}
+
+      {/* Contact Info */}
+      <section className="mx-auto flex max-w-4xl flex-col items-center justify-center gap-10 space-y-6 pt-20 lg:flex-row">
+        <CopyEmail className="text-xl" />
+
+        <div className="flex gap-5">
+          {socialLinks.map((item, i) => (
+            <Button key={i} size={"icon"} variant={"ghost"} asChild>
+              <Link href={item.href}>{item.icon}</Link>
+            </Button>
+          ))}
+        </div>
+      </section>
+      {/* Contact Info End */}
 
       {/* Skills */}
       <section className="mx-auto max-w-4xl space-y-6 pt-40">
