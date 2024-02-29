@@ -236,4 +236,8 @@ export const interestedTechnologies = [
     title: "AWS",
     icon: "",
   },
+  {
+    title: "WordPress",
+    icon: "",
+  },
 ];
