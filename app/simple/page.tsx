@@ -209,7 +209,7 @@ export default function Page() {
       {/* Eduction End */}
 
       {/* Interested In */}
-      <section className="mx-auto max-w-4xl space-y-6 pt-40">
+      <section className="mx-auto max-w-4xl space-y-6 py-40">
         <h1 className="text-3xl font-semibold text-[#00f8ff]">
           Technologies I Will Be Learning
         </h1>
