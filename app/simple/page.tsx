@@ -26,7 +26,7 @@ export default function Page() {
   return (
     <main className="container min-h-screen space-y-10 py-20">
       {/* Short Introduction */}
-      <section className="space-y-2 text-center">
+      <section className="space-y-2 text-center" id="about">
         <h1 className="text-3xl font-medium md:text-6xl">
           Hi 👋, I am Rifat Khan
         </h1>
@@ -55,7 +55,7 @@ export default function Page() {
       {/* About End */}
 
       {/* Contact Info */}
-      <section className="mx-auto max-w-4xl space-y-6 pt-20">
+      <section className="mx-auto max-w-4xl space-y-6 pt-20" id="contact">
         <h1 className="text-3xl font-semibold text-[#00f8ff]">
           Contact Me Through
         </h1>
@@ -73,7 +73,7 @@ export default function Page() {
       {/* Contact Info End */}
 
       {/* Skills */}
-      <section className="mx-auto max-w-4xl space-y-6 pt-20">
+      <section className="mx-auto max-w-4xl space-y-6 pt-20" id="skills">
         <h1 className="text-3xl font-semibold text-[#00f8ff]">Skills</h1>
 
         {/* Hard skills */}
@@ -156,7 +156,7 @@ export default function Page() {
       {/* Skills End */}
 
       {/* Projects */}
-      <section className="mx-auto max-w-4xl space-y-6 pt-20">
+      <section className="mx-auto max-w-4xl space-y-6 pt-20" id="projects">
         <h1 className="text-3xl font-semibold text-[#00f8ff]">Projects</h1>
 
         <section className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
@@ -185,7 +185,7 @@ export default function Page() {
       {/* Projects End */}
 
       {/* Eduction */}
-      <section className="mx-auto max-w-4xl space-y-6 pt-20">
+      <section className="mx-auto max-w-4xl space-y-6 pt-20" id="education">
         <h1 className="text-3xl font-semibold text-[#00f8ff]">
           Education and Courses
         </h1>
@@ -209,7 +209,7 @@ export default function Page() {
       {/* Eduction End */}
 
       {/* Interested In */}
-      <section className="mx-auto max-w-4xl space-y-6 py-20">
+      <section className="mx-auto max-w-4xl space-y-6 py-20" id="interested">
         <h1 className="text-3xl font-semibold text-[#00f8ff]">
           Technologies I Will Be Learning
         </h1>
