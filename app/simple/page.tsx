@@ -211,7 +211,7 @@ export default function Page() {
       {/* Interested In */}
       <section className="mx-auto max-w-4xl space-y-6 pt-40">
         <h1 className="text-3xl font-semibold text-[#00f8ff]">
-          Technologies I Am Interested In
+          Technologies I Will Be Learning
         </h1>
 
         <section>
