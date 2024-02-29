@@ -36,7 +36,7 @@ export default function Page() {
 
       {/* Skills */}
       <section className="mx-auto max-w-4xl space-y-6 pt-40">
-        <h1 className="text-3xl font-semibold">Skills</h1>
+        <h1 className="text-3xl font-semibold text-[#00f8ff]">Skills</h1>
 
         {/* Hard skills */}
         <section className="grid grid-cols-4 gap-2">
