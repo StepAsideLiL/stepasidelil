@@ -210,3 +210,26 @@ export const courses = [
     date: "July 2022 - Aug 2022",
   },
 ];
+
+export const interestedTechnologies = [
+  {
+    title: "React Native",
+    icon: "",
+  },
+  {
+    title: "Rust",
+    icon: "",
+  },
+  {
+    title: "Go",
+    icon: "",
+  },
+  {
+    title: "Docker",
+    icon: "",
+  },
+  {
+    title: "AWS",
+    icon: "",
+  },
+];
