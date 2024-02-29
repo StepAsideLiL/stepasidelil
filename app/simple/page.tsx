@@ -18,7 +18,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import CopyEmail from "@/components/uis/copy-email";
+import { CopyEmail } from "@/components/uis/client-components";
 import Image from "next/image";
 import Link from "next/link";
 
