@@ -42,30 +42,26 @@ const navMenus = [
   },
 ];
 
-export function ModeToggle() {
-  const { setTheme } = useTheme();
+export function ModeSwitch() {
+  const { theme, setTheme } = useTheme();
+
+  function changeTheme() {
+    if (theme === "dark") {
+      setTheme("light");
+    } else {
+      setTheme("dark");
+    }
+  }
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
-          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          <span className="sr-only">Toggle theme</span>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <Button onClick={() => changeTheme()}>
+      {theme === "dark" ? (
+        <Sun className="mr-2 h-[1.2rem] w-[1.2rem]" />
+      ) : (
+        <Moon className="mr-2 h-[1.2rem] w-[1.2rem]" />
+      )}
+      {theme === "dark" ? `Switch to Light` : "Switch to Dark"}
+    </Button>
   );
 }
 
@@ -114,7 +110,7 @@ export function SimpleNavMenuSheet() {
         <Menu />
       </SheetTrigger>
 
-      <SheetContent>
+      <SheetContent className="space-y-3">
         <div className="h-10"></div>
 
         <nav className="flex flex-col gap-2">
@@ -128,6 +124,10 @@ export function SimpleNavMenuSheet() {
             </Link>
           ))}
         </nav>
+
+        <Button variant={"secondary"}>
+          <Link href={"/"}>Fancy Portfolio</Link>
+        </Button>
       </SheetContent>
     </Sheet>
   );
