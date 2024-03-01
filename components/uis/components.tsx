@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Menus, SimpleNavMenuSheet } from "./client-components";
+import { Menus, ModeSwitch, SimpleNavMenuSheet } from "./client-components";
 
 export function SimplePageNavbar() {
   return (
@@ -9,8 +9,10 @@ export function SimplePageNavbar() {
         <Menus />
 
         <Button variant={"secondary"}>
-          <Link href={"/"}>Styled Page</Link>
+          <Link href={"/"}>Fancy Portfolio</Link>
         </Button>
+
+        <ModeSwitch />
       </div>
 
       <div className="container flex justify-end py-5 md:hidden">
