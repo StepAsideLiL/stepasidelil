@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import { email } from "@/components/portfolio-infos/infos";
 import { useState } from "react";
-import { Check, Copy, Moon, Sun } from "lucide-react";
+import { Check, Copy, Menu, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,6 +13,34 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+
+const navMenus = [
+  {
+    title: "About",
+    href: "#about",
+  },
+  {
+    title: "Contact",
+    href: "#contact",
+  },
+  {
+    title: "Skills",
+    href: "#skills",
+  },
+  {
+    title: "Projects",
+    href: "#projects",
+  },
+  {
+    title: "Education",
+    href: "#education",
+  },
+  {
+    title: "Interested",
+    href: "#interested",
+  },
+];
 
 export function ModeToggle() {
   const { setTheme } = useTheme();
@@ -65,41 +93,42 @@ export function CopyEmail({ className }: { className?: string }) {
   );
 }
 
-export function Menus() {
-  const navMenus = [
-    {
-      title: "About",
-      href: "#about",
-    },
-    {
-      title: "Contact",
-      href: "#contact",
-    },
-    {
-      title: "Skills",
-      href: "#skills",
-    },
-    {
-      title: "Projects",
-      href: "#projects",
-    },
-    {
-      title: "Education",
-      href: "#education",
-    },
-    {
-      title: "Interested",
-      href: "#interested",
-    },
-  ];
-
+export function Menus({ className }: { className?: string }) {
   return (
-    <nav className="flex items-center gap-2">
+    <nav className={cn("flex items-center gap-2", className)}>
       {navMenus.map((menu) => (
-        <Link key={menu.href} href={`/simple${menu.href}`}>
+        <Link key={menu.href} href={menu.href} className="hover:underline">
           {menu.title}
         </Link>
       ))}
     </nav>
+  );
+}
+
+export function SimpleNavMenuSheet() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Sheet open={open} onOpenChange={setOpen}>
+      <SheetTrigger>
+        <Menu />
+      </SheetTrigger>
+
+      <SheetContent>
+        <div className="h-10"></div>
+
+        <nav className="flex flex-col gap-2">
+          {navMenus.map((menu) => (
+            <Link
+              key={menu.href}
+              href={`${menu.href}`}
+              onClick={() => setOpen(false)}
+            >
+              {menu.title}
+            </Link>
+          ))}
+        </nav>
+      </SheetContent>
+    </Sheet>
   );
 }
