@@ -54,7 +54,7 @@ export function ModeSwitch() {
   }
 
   return (
-    <Button onClick={() => changeTheme()}>
+    <Button onClick={() => changeTheme()} className="w-fit">
       {theme === "dark" ? (
         <Sun className="mr-2 h-[1.2rem] w-[1.2rem]" />
       ) : (
@@ -110,7 +110,7 @@ export function SimpleNavMenuSheet() {
         <Menu />
       </SheetTrigger>
 
-      <SheetContent className="space-y-3">
+      <SheetContent className="flex flex-col gap-2">
         <div className="h-10"></div>
 
         <nav className="flex flex-col gap-2">
@@ -119,15 +119,18 @@ export function SimpleNavMenuSheet() {
               key={menu.href}
               href={`${menu.href}`}
               onClick={() => setOpen(false)}
+              className="hover:underline"
             >
               {menu.title}
             </Link>
           ))}
         </nav>
 
-        <Button variant={"secondary"}>
+        <Button variant={"secondary"} className="w-fit">
           <Link href={"/"}>Fancy Portfolio</Link>
         </Button>
+
+        <ModeSwitch />
       </SheetContent>
     </Sheet>
   );
