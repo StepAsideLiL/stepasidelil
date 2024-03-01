@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Menus } from "./client-components";
+import { Menus, SimpleNavMenuSheet } from "./client-components";
 
 export function SimplePageNavbar() {
   return (
@@ -11,6 +11,10 @@ export function SimplePageNavbar() {
         <Button variant={"secondary"}>
           <Link href={"/"}>Styled Page</Link>
         </Button>
+      </div>
+
+      <div className="container flex justify-end py-5 md:hidden">
+        <SimpleNavMenuSheet />
       </div>
     </header>
   );
