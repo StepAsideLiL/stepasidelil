@@ -167,7 +167,9 @@ export default function Page() {
           {projects.map((item, i) => (
             <Card key={i}>
               <CardHeader>
-                <CardTitle>{item.title}</CardTitle>
+                <CardTitle className="text-lg md:text-2xl">
+                  {item.title}
+                </CardTitle>
                 <CardDescription>
                   <Link href={item.href} className="hover:underline">
                     GitHub Link
