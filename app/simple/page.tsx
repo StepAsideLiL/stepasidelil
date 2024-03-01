@@ -202,6 +202,8 @@ export default function Page() {
           <p className="text-muted-foreground">{education[0].institution}</p>
         </section>
 
+        <Separator />
+
         {courses.map((item, i) => (
           <section key={i}>
             <p className="text-muted-foreground">{item.date}</p>
