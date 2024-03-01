@@ -56,7 +56,7 @@ export default function Page() {
 
       {/* Contact Info */}
       <section className="mx-auto max-w-4xl space-y-6 pt-20" id="contact">
-        <h1 className="text-3xl font-semibold text-[#00f8ff]">
+        <h1 className="text-2xl font-semibold text-[#00f8ff] md:text-3xl">
           Contact Me Through
         </h1>
 
@@ -74,7 +74,9 @@ export default function Page() {
 
       {/* Skills */}
       <section className="mx-auto max-w-4xl space-y-6 pt-20" id="skills">
-        <h1 className="text-3xl font-semibold text-[#00f8ff]">Skills</h1>
+        <h1 className="text-2xl font-semibold text-[#00f8ff] md:text-3xl">
+          Skills
+        </h1>
 
         {/* Hard skills */}
         <section className="grid grid-cols-4 gap-2">
@@ -157,7 +159,9 @@ export default function Page() {
 
       {/* Projects */}
       <section className="mx-auto max-w-4xl space-y-6 pt-20" id="projects">
-        <h1 className="text-3xl font-semibold text-[#00f8ff]">Projects</h1>
+        <h1 className="text-2xl font-semibold text-[#00f8ff] md:text-3xl">
+          Projects
+        </h1>
 
         <section className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((item, i) => (
@@ -186,7 +190,7 @@ export default function Page() {
 
       {/* Eduction */}
       <section className="mx-auto max-w-4xl space-y-6 pt-20" id="education">
-        <h1 className="text-3xl font-semibold text-[#00f8ff]">
+        <h1 className="text-2xl font-semibold text-[#00f8ff] md:text-3xl">
           Education and Courses
         </h1>
 
@@ -210,7 +214,7 @@ export default function Page() {
 
       {/* Interested In */}
       <section className="mx-auto max-w-4xl space-y-6 py-20" id="interested">
-        <h1 className="text-3xl font-semibold text-[#00f8ff]">
+        <h1 className="text-2xl font-semibold text-[#00f8ff] md:text-3xl">
           Technologies I Will Be Learning
         </h1>
 
