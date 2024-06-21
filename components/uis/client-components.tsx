@@ -43,24 +43,20 @@ const navMenus = [
 ];
 
 export function ModeSwitch() {
-  const { theme, setTheme } = useTheme();
+  const { theme, systemTheme, setTheme } = useTheme();
 
   function changeTheme() {
-    if (theme === "dark") {
-      setTheme("light");
-    } else {
-      setTheme("dark");
-    }
+    const resolvedTheme = theme === "system" ? systemTheme : theme;
+    const newTheme = resolvedTheme === "dark" ? "light" : "dark";
+    const newThemeMatchesSystem = newTheme === systemTheme;
+    setTheme(newThemeMatchesSystem ? "system" : newTheme);
   }
 
   return (
     <Button onClick={() => changeTheme()} className="w-fit">
-      {theme === "dark" ? (
-        <Sun className="mr-2 h-[1.2rem] w-[1.2rem]" />
-      ) : (
-        <Moon className="mr-2 h-[1.2rem] w-[1.2rem]" />
-      )}
-      {theme === "dark" ? `Switch to Light` : "Switch to Dark"}
+      <Sun className="h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+      <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+      <span className="sr-only">Toggle theme</span>
     </Button>
   );
 }
