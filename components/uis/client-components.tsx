@@ -1,7 +1,6 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { email } from "@/components/portfolio-infos/infos";
 import { useState } from "react";
 import { Check, Copy, Menu, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -61,7 +60,13 @@ export function ModeSwitch() {
   );
 }
 
-export function CopyEmail({ className }: { className?: string }) {
+export function CopyEmail({
+  className,
+  email,
+}: {
+  className?: string;
+  email: string;
+}) {
   const [copied, setCopied] = useState(false);
 
   const copyToClipboard = async () => {
