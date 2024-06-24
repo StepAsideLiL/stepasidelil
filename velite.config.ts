@@ -10,7 +10,6 @@ const blogs = defineCollection({
     .object({
       title: s.string(),
       slug: s.path(), // auto generate slug from file path
-      // slug: s.slug("blogs"),
       description: s.string().max(999).optional(),
       date: s.isodate(), // input Date-like string, output ISO Date string.
       published: s.boolean().default(true),
