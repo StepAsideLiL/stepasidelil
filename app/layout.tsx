@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { inter } from "@/lib/fonts";
+import { robotoMono } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   title: "Rifat Khan (StepAsideLiL)",
@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={robotoMono.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
