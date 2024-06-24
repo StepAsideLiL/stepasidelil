@@ -25,6 +25,19 @@ const blogs = defineCollection({
     })),
 });
 
+const portfolio = defineCollection({
+  name: "Portfolio",
+  pattern: "portfolio/portfolio.mdx",
+  schema: s.object({
+    title: s.string(),
+    slug: s.path(),
+    description: s.string().max(999).optional(),
+    metadata: s.metadata(),
+    excerpt: s.excerpt(),
+    content: s.mdx(),
+  }),
+});
+
 export default defineConfig({
   root: "content",
   output: {
@@ -34,7 +47,7 @@ export default defineConfig({
     name: "[name]-[hash:6].[ext]",
     clean: true,
   },
-  collections: { blogs },
+  collections: { blogs, portfolio },
   mdx: {
     rehypePlugins: [
       rehypeSlug,
