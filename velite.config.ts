@@ -16,6 +16,7 @@ const blogs = defineCollection({
       metadata: s.metadata(), // extract markdown reading-time, word-count, etc.
       excerpt: s.excerpt(), // excerpt of markdown content
       content: s.mdx(),
+      toc: s.toc(),
     })
     .transform((data) => ({
       ...data,
@@ -34,6 +35,7 @@ const portfolio = defineCollection({
     metadata: s.metadata(),
     excerpt: s.excerpt(),
     content: s.mdx(),
+    toc: s.toc(),
   }),
 });
 
