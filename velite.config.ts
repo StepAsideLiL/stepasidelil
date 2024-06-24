@@ -1,7 +1,6 @@
 import { defineConfig, defineCollection, s } from "velite";
 import rehypeSlug from "rehype-slug";
 import rehypePrettyCode from "rehype-pretty-code";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 const blogs = defineCollection({
   name: "Blog",
@@ -49,20 +48,7 @@ export default defineConfig({
   },
   collections: { blogs, portfolio },
   mdx: {
-    rehypePlugins: [
-      rehypeSlug,
-      [rehypePrettyCode, { theme: "github-dark" }],
-      [
-        rehypeAutolinkHeadings,
-        {
-          behavior: "wrap",
-          properties: {
-            className: ["subheading-anchor"],
-            ariaLabel: "Link to section",
-          },
-        },
-      ],
-    ],
+    rehypePlugins: [rehypeSlug, [rehypePrettyCode, { theme: "github-dark" }]],
     remarkPlugins: [],
   },
 });
