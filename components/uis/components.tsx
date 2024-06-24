@@ -1,22 +1,13 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Menus, ModeSwitch, SimpleNavMenuSheet } from "./client-components";
+import { ModeSwitch } from "./client-components";
 
 export function SimplePageNavbar() {
   return (
-    <header>
-      <div className="hidden items-center justify-center gap-2 py-5 md:flex">
-        <Menus />
-
-        <Button variant={"secondary"}>
-          <Link href={"/"}>Fancy Portfolio</Link>
-        </Button>
+    <header className="border-b">
+      <div className="mx-auto flex max-w-3xl items-center justify-between gap-2 px-10 py-5">
+        <div></div>
 
         <ModeSwitch />
-      </div>
-
-      <div className="container flex justify-end py-5 md:hidden">
-        <SimpleNavMenuSheet />
       </div>
     </header>
   );
