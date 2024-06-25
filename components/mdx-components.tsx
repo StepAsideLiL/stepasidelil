@@ -32,6 +32,15 @@ const components = {
       {...props}
     />
   ),
+  h4: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+    <h4
+      className={cn(
+        "font-heading mt-8 scroll-m-20 text-lg font-semibold tracking-tight",
+        className,
+      )}
+      {...props}
+    />
+  ),
   a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
     <a
       className={cn("underline underline-offset-4", className)}
