@@ -1,7 +1,7 @@
 import blogs from "#blogs";
 import MDXContent from "@/components/mdx-components";
 import { Badge } from "@/components/ui/badge";
-import { yesevaOne } from "@/lib/fonts";
+import { yesevaOne } from "@/config/fonts";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 

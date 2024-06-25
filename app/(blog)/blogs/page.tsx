@@ -1,4 +1,4 @@
-import { yesevaOne } from "@/lib/fonts";
+import { yesevaOne } from "@/config/fonts";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import blogs from "#blogs";
