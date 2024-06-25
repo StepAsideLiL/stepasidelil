@@ -317,7 +317,12 @@ export function Introduction({ className }: { className?: string }) {
 export function TopSkills() {
   return (
     <div className="flex items-center gap-2">
-      {skills.topSkills.map((skill, i) => skill.title).join(", ")}
+      {skills.topSkills.map((skill, i, arr) => (
+        <span key={i}>
+          {skill.title}
+          {i < arr.length - 1 && ", "}
+        </span>
+      ))}
     </div>
   );
 }
@@ -404,7 +409,12 @@ export function Education() {
 export function InterestedIn() {
   return (
     <div>
-      {skills.interestedTechnologies.map((item, i) => item.title).join(", ")}
+      {skills.interestedTechnologies.map((skill, i, arr) => (
+        <span key={i}>
+          {skill.title}
+          {i < arr.length - 1 && ", "}
+        </span>
+      ))}
     </div>
   );
 }
