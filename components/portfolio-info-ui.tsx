@@ -334,17 +334,12 @@ export function Contact() {
 
       <div>
         {socialLinks.map((link, i, arr) => (
-          <>
-            <Link
-              key={i}
-              href={link.href}
-              target="_blank"
-              className="hover:underline"
-            >
+          <span key={i}>
+            <Link href={link.href} target="_blank" className="hover:underline">
               {link.title}
             </Link>
             {i < arr.length - 1 && ", "}
-          </>
+          </span>
         ))}
       </div>
     </div>
