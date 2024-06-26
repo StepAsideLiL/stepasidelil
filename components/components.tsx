@@ -1,11 +1,18 @@
 import Link from "next/link";
-import { ModeSwitch } from "./client-components";
+import { ModeSwitch, NavMenu } from "./client-components";
+import ProfileSvg from "./profile-svg";
 
-export function SimplePageNavbar() {
+export function MainNavbar() {
   return (
     <header className="border-b">
       <div className="mx-auto flex max-w-3xl items-center justify-between gap-2 px-10 py-5">
-        <div></div>
+        <div className="flex items-center gap-5">
+          <Link href={"/"}>
+            <ProfileSvg size={30} />
+          </Link>
+
+          <NavMenu />
+        </div>
 
         <ModeSwitch />
       </div>
@@ -13,7 +20,7 @@ export function SimplePageNavbar() {
   );
 }
 
-export function SimplePageFooter() {
+export function MainFooter() {
   return (
     <footer className="border-t py-10">
       <p className="text-center">
