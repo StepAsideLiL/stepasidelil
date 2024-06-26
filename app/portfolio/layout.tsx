@@ -1,7 +1,4 @@
-import {
-  SimplePageFooter,
-  SimplePageNavbar,
-} from "@/components/uis/components";
+import { SimplePageFooter, SimplePageNavbar } from "@/components/components";
 
 export default function Layout({
   children,

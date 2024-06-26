@@ -26,7 +26,7 @@ import {
 } from "@/components/ui/card";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
-import { CopyEmail } from "@/components/uis/client-components";
+import { CopyEmail } from "@/components/client-components";
 
 export const about =
   "I am a passionate web developer building cool projects with Nextjs and other JavaScript-based libraries. With a background in Engineering, I bring well-rounded problem-solving skills for developing websites and web apps with a sharp eye for UI/UX design.";
