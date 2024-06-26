@@ -1,4 +1,4 @@
-import { SimplePageFooter, SimplePageNavbar } from "@/components/components";
+import { MainFooter, MainNavbar } from "@/components/components";
 
 export default function Layout({
   children,
@@ -7,11 +7,11 @@ export default function Layout({
 }>) {
   return (
     <>
-      <SimplePageNavbar />
+      <MainNavbar />
 
       {children}
 
-      <SimplePageFooter />
+      <MainFooter />
     </>
   );
 }
