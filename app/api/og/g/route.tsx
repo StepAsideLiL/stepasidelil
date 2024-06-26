@@ -22,7 +22,7 @@ export async function GET(req: NextRequest) {
 
     return new ImageResponse(
       (
-        <div tw="p-10 flex flex-col w-full h-full">
+        <div tw="p-10 flex flex-col w-full h-full bg-white">
           <div tw="flex flex-1 flex-col">
             <div tw="flex items-center">
               <ProfileSvg size={50} />
