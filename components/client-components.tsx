@@ -5,6 +5,8 @@ import { useState } from "react";
 import { Check, Copy, Menu, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export function ModeSwitch() {
   const { theme, systemTheme, setTheme } = useTheme();
@@ -52,5 +54,40 @@ export function CopyEmail({
       <p>{email}</p>
       <span>{!copied ? <Copy size={16} /> : <Check size={16} />}</span>
     </div>
+  );
+}
+
+export function NavMenu() {
+  const navList = [
+    {
+      title: "Portfolio",
+      href: "/portfolio",
+    },
+    {
+      title: "Blogs",
+      href: "/blogs",
+    },
+  ];
+
+  const pathname = usePathname();
+
+  return (
+    <nav>
+      <ul className="flex items-center gap-5">
+        {navList.map((list) => (
+          <li key={list.href}>
+            <Link
+              href={list.href}
+              className={cn(
+                "text-muted-foreground transition-colors hover:text-foreground",
+                pathname === list.href && "text-foreground underline",
+              )}
+            >
+              {list.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 }
