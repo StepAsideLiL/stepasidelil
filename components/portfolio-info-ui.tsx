@@ -38,21 +38,25 @@ export const socialLinks = [
     title: "GitHub",
     icon: SiGithub,
     href: "https://github.com/StepAsideLiL",
+    username: "StepAsideLiL",
   },
   {
     title: "LinkedIn",
     icon: SiLinkedin,
     href: "https://www.linkedin.com/in/mdabdullahrifatkhan/",
+    username: "mdabdullahrifatkhan",
   },
   {
     title: "Twitter",
     icon: SiX,
     href: "https://twitter.com/StepAsideLiL",
+    username: "StepAsideLiL",
   },
   {
     title: "Instagram",
     icon: SiInstagram,
     href: "https://www.instagram.com/stepasidelil",
+    username: "stepasidelil",
   },
 ];
 
