@@ -45,7 +45,7 @@ export default function Page() {
         <Link
           key={blog.slug}
           href={blog.permalink}
-          className="block space-y-1 py-3 text-muted transition-colors hover:text-foreground"
+          className="block space-y-1 py-3 text-muted-foreground/60 transition-colors hover:text-foreground"
         >
           <h1 className={cn("text-4xl", yesevaOne.className)}>{blog.title}</h1>
 
