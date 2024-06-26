@@ -29,7 +29,7 @@ export async function generateMetadata(): Promise<Metadata> {
       url: siteConfig.author.url,
       images: [
         {
-          url: `/api/og/portfolio`,
+          url: `/api/og/g`,
           width: 1200,
           height: 630,
           alt: portfilio.title,
