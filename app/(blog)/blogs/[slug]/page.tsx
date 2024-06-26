@@ -41,7 +41,7 @@ export async function generateMetadata({
       url: siteConfig.author.url,
       images: [
         {
-          url: `/api/og/g${ogSearchParams.toString()}`,
+          url: `/api/og/g?${ogSearchParams.toString()}`,
           width: 1200,
           height: 630,
           alt: "Blogs by Rifat Khan",
