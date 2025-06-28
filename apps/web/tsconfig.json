@@ -4,7 +4,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "@workspace/design-system/*": ["../../packages/design-system/src/*"]
+      "@workspace/design-system/*": ["../../packages/design-system/src/*"],
+      "#blogs": ["./.velite/blogs.json"],
+      "#portfolio": ["./.velite/portfolio.json"]
     },
     "plugins": [
       {

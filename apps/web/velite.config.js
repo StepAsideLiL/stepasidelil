@@ -39,7 +39,7 @@ const portfolio = defineCollection({
   }),
 });
 
-export default defineConfig({
+const config = defineConfig({
   root: "content",
   output: {
     data: "./.velite",
@@ -54,3 +54,5 @@ export default defineConfig({
     remarkPlugins: [],
   },
 });
+
+export default config;

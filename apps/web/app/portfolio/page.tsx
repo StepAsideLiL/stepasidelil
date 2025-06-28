@@ -42,7 +42,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Page() {
   const myPortfolio = await getPortfolioData();
 
-  if (!myPortfolio.content) {
+  if (!myPortfolio) {
     return (
       <main className={cn("mx-auto max-w-3xl px-10 py-10")}>
         <h1 className="text-center text-2xl">🥺</h1>

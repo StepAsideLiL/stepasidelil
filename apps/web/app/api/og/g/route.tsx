@@ -3,10 +3,8 @@ import { siteConfig } from "@/config/site";
 import ProfileSvg from "@/components/profile-svg";
 import { NextRequest } from "next/server";
 
-export const runtime = "edge";
-
 const robotoMonoBold = fetch(
-  new URL("../../../../assets/fonts/RobotoMono-Bold.ttf", import.meta.url),
+  new URL("../../../../assets/fonts/RobotoMono-Bold.ttf", import.meta.url)
 ).then((res) => res.arrayBuffer());
 
 export async function GET(req: NextRequest) {
@@ -51,7 +49,7 @@ export async function GET(req: NextRequest) {
             style: "normal",
           },
         ],
-      },
+      }
     );
   } catch (error) {
     return new Response("Failed to generate image", { status: 500 });
