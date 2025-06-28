@@ -114,6 +114,19 @@ function Card({
   className?: string;
   href?: string;
 }) {
+  if (!href) {
+    return (
+      <div
+        className={cn(
+          "flex w-full flex-1 flex-col gap-10 border p-10 transition-colors hover:bg-foreground hover:text-background",
+          className
+        )}
+      >
+        {children}
+      </div>
+    );
+  }
+
   return (
     <Link
       href={href}
