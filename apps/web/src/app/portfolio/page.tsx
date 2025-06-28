@@ -11,7 +11,7 @@ async function getPortfolioData() {
 export async function generateMetadata(): Promise<Metadata> {
   const portfilio = await getPortfolioData();
 
-  if (!portfilio) {
+  if (!portfilio || portfilio === undefined) {
     return {};
   }
 

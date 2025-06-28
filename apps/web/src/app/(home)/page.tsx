@@ -119,7 +119,7 @@ function Card({
       href={href}
       className={cn(
         "flex w-full flex-1 flex-col gap-10 border p-10 transition-colors hover:bg-foreground hover:text-background",
-        className,
+        className
       )}
     >
       {children}
@@ -138,7 +138,7 @@ function CardTitle({
     <h1
       className={cn(
         "flex-1 text-right text-3xl font-bold lg:text-5xl",
-        className,
+        className
       )}
     >
       {children}

@@ -4,7 +4,7 @@ import ProfileSvg from "@/components/profile-svg";
 import { NextRequest } from "next/server";
 
 const robotoMonoBold = fetch(
-  new URL("../../../../assets/fonts/RobotoMono-Bold.ttf", import.meta.url)
+  new URL("../../../../../assets/fonts/RobotoMono-Bold.ttf", import.meta.url)
 ).then((res) => res.arrayBuffer());
 
 export async function GET(req: NextRequest) {

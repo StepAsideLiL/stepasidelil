@@ -40,7 +40,7 @@ const portfolio = defineCollection({
 });
 
 const config = defineConfig({
-  root: "content",
+  root: "src/content",
   output: {
     data: "./.velite",
     assets: "public/static",

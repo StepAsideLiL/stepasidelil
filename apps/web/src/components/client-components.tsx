@@ -80,7 +80,7 @@ export function NavMenu() {
               href={list.href}
               className={cn(
                 "text-muted-foreground transition-colors hover:text-foreground",
-                pathname === list.href && "text-foreground underline",
+                pathname === list.href && "text-foreground underline"
               )}
             >
               {list.title}
