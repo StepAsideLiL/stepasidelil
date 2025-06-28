@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import {
-  SiAmazonaws,
+  SiAmazonwebservices,
   SiDocker,
   SiElectron,
   SiExpo,
@@ -252,7 +252,7 @@ export const skills = {
     },
     {
       title: "AWS",
-      icon: SiAmazonaws,
+      icon: SiAmazonwebservices,
     },
   ],
 };

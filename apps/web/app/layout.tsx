@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "@workspace/design-system/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { robotoMono } from "@/config/fonts";
 
@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={robotoMono.className}>
+      <body className={robotoMono.className} suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
