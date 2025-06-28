@@ -34,6 +34,7 @@ export async function generateMetadata({
       name: siteConfig.author.name,
       url: siteConfig.author.url,
     },
+    metadataBase: new URL("https://stepasidelil.vercel.app/"),
     openGraph: {
       title: blog.title,
       description: blog.description,

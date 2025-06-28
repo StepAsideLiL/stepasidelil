@@ -21,6 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
       name: siteConfig.author.name,
       url: siteConfig.author.url,
     },
+    metadataBase: new URL("https://stepasidelil.vercel.app/"),
     openGraph: {
       title: "Blogs by Rifat Khan",
       description: "Read Blogs on Web Development and Nextjs",

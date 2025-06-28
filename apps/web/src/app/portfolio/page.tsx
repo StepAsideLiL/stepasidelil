@@ -22,6 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
       name: siteConfig.author.name,
       url: siteConfig.author.url,
     },
+    metadataBase: new URL("https://stepasidelil.vercel.app/"),
     openGraph: {
       title: portfilio.title,
       description: portfilio.description,
