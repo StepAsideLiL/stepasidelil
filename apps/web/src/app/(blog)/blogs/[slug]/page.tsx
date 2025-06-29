@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 import { Metadata } from "next";
 
-type BlogPageProps = { params: { slug: string } };
+type BlogPageProps = { params: Promise<{ slug: string }> };
 
 async function getBlogsFromSlug(slug: string) {
   const blog = blogs.find((blog) => blog.slugAsParams === slug);
@@ -18,7 +18,7 @@ async function getBlogsFromSlug(slug: string) {
 export async function generateMetadata({
   params,
 }: BlogPageProps): Promise<Metadata> {
-  const blog = await getBlogsFromSlug(params.slug);
+  const blog = await getBlogsFromSlug((await params).slug);
 
   if (!blog) {
     return {};
@@ -53,7 +53,7 @@ export async function generateMetadata({
 }
 
 export default async function Page({ params }: BlogPageProps) {
-  const blog = await getBlogsFromSlug(params.slug);
+  const blog = await getBlogsFromSlug((await params).slug);
 
   if (!blog) {
     return <main>Lost</main>;

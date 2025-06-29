@@ -2,18 +2,20 @@ import { ImageResponse } from "next/og";
 import { siteConfig } from "@/config/site";
 import ProfileSvg from "@/components/profile-svg";
 import { NextRequest } from "next/server";
+import fs from "fs";
+import path from "path";
 
-const baseUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : "http://localhost:3000";
+// const baseUrl = process.env.VERCEL_URL
+//   ? `https://${process.env.VERCEL_URL}`
+//   : "http://localhost:3000";
 
-const robotoMonoBold = fetch(
-  new URL("/fonts/RobotoMono-Bold.ttf", baseUrl)
-).then((res) => res.arrayBuffer());
+const robotoMonoBold = fs.readFileSync(
+  path.join(process.cwd(), "public/fonts/RobotoMono-Bold.ttf")
+);
 
 export async function GET(req: NextRequest) {
   try {
-    const fontBold = await robotoMonoBold;
+    const fontBold = robotoMonoBold;
 
     const { searchParams } = req.nextUrl;
     const titleParam = searchParams.get("title");
@@ -24,20 +26,56 @@ export async function GET(req: NextRequest) {
 
     return new ImageResponse(
       (
-        <div tw="p-10 flex flex-col w-full h-full bg-white">
-          <div tw="flex flex-1 flex-col">
-            <div tw="flex items-center">
+        <div
+          style={{
+            padding: "2.5rem",
+            display: "flex",
+            flexDirection: "column",
+            width: "100%",
+            height: "100%",
+            backgroundColor: "white",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flex: "1 1 0%",
+              flexDirection: "column",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
               <ProfileSvg size={50} />
-
-              <h1 tw="text-5xl ml-5">{siteConfig.author.name}</h1>
+              <h1
+                style={{
+                  fontSize: "3rem",
+                  lineHeight: "1",
+                  marginLeft: "1.25rem",
+                }}
+              >
+                {siteConfig.author.name}
+              </h1>
             </div>
-
-            <p tw="text-7xl">{heading}</p>
+            <p
+              style={{
+                fontSize: "4.5rem",
+                lineHeight: "1",
+              }}
+            >
+              {heading}
+            </p>
           </div>
-
-          <div tw="flex justify-between">
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+            }}
+          >
             <p>{siteConfig.author.url}</p>
-
             <p>{siteConfig.links.github}</p>
           </div>
         </div>
@@ -56,6 +94,7 @@ export async function GET(req: NextRequest) {
       }
     );
   } catch (error) {
+    console.log(error);
     return new Response("Failed to generate image", { status: 500 });
   }
 }

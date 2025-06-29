@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { useState } from "react";
-import { Check, Copy, Menu, Moon, Sun } from "lucide-react";
+import { Check, Copy, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -20,8 +20,8 @@ export function ModeSwitch() {
 
   return (
     <Button onClick={() => changeTheme()} className="w-fit">
-      <Sun className="h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-      <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+      <Sun className="h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
+      <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
       <span className="sr-only">Toggle theme</span>
     </Button>
   );
@@ -79,7 +79,7 @@ export function NavMenu() {
             <Link
               href={list.href}
               className={cn(
-                "text-muted-foreground transition-colors hover:text-foreground",
+                "text-muted-foreground hover:text-foreground transition-colors",
                 pathname === list.href && "text-foreground underline"
               )}
             >
