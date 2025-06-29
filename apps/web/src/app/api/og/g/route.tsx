@@ -3,11 +3,12 @@ import { siteConfig } from "@/config/site";
 import ProfileSvg from "@/components/profile-svg";
 import { NextRequest } from "next/server";
 
+const baseUrl = process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : "http://localhost:3000";
+
 const robotoMonoBold = fetch(
-  new URL(
-    "/fonts/RobotoMono-Bold.ttf",
-    process.env.VERCEL_URL || "http://localhost:3000"
-  )
+  new URL("/fonts/RobotoMono-Bold.ttf", baseUrl)
 ).then((res) => res.arrayBuffer());
 
 export async function GET(req: NextRequest) {
