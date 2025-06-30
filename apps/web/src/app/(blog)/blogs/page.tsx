@@ -1,19 +1,29 @@
 import { yesevaOne } from "@/config/fonts";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import blogs from "#blogs";
 import { format } from "date-fns";
 import { Metadata } from "next";
 import nextMetadata from "@/lib/next-metadata";
+import data from "@/lib/data";
 
 export async function generateMetadata(): Promise<Metadata> {
   return nextMetadata("Blogs", "Read Blogs by Rifat Khan");
 }
 
 export default function Page() {
+  if (data.blogs.length === 0) {
+    return (
+      <div>
+        <h1 className="text-muted-foreground text-center text-2xl">
+          No Blogs Are Written
+        </h1>
+      </div>
+    );
+  }
+
   return (
     <>
-      {blogs.map((blog) => (
+      {data.blogs.map((blog) => (
         <Link
           key={blog.slug}
           href={blog.permalink}

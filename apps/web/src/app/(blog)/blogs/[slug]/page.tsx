@@ -1,7 +1,7 @@
-import blogs from "#blogs";
 import MDXContent from "@/components/mdx-components";
 import { Badge } from "@/components/ui/badge";
 import { yesevaOne } from "@/config/fonts";
+import data from "@/lib/data";
 import nextMetadata from "@/lib/next-metadata";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
@@ -9,29 +9,27 @@ import { Metadata } from "next";
 
 type BlogPageProps = { params: Promise<{ slug: string }> };
 
-async function getBlogsFromSlug(slug: string) {
-  const blog = blogs.find((blog) => blog.slugAsParams === slug);
-
-  return blog;
-}
-
 export async function generateMetadata({
   params,
 }: BlogPageProps): Promise<Metadata> {
-  const blog = await getBlogsFromSlug((await params).slug);
+  const blog = data.getBlogBySlug((await params).slug);
 
-  if (!blog) {
-    return {};
-  }
-
-  return nextMetadata(blog.title, blog.description);
+  return blog
+    ? nextMetadata(blog.title, blog.description)
+    : nextMetadata("No Blog Found");
 }
 
 export default async function Page({ params }: BlogPageProps) {
-  const blog = await getBlogsFromSlug((await params).slug);
+  const blog = data.getBlogBySlug((await params).slug);
 
   if (!blog) {
-    return <main>Lost</main>;
+    return (
+      <div>
+        <h1 className="text-muted-foreground text-center text-2xl">
+          No Blog Found!
+        </h1>
+      </div>
+    );
   }
 
   return (
