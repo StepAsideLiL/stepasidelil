@@ -14,8 +14,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={robotoMono.className} suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
+      <body className={robotoMono.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
