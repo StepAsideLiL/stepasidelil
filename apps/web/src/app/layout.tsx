@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "@workspace/design-system/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { robotoMono } from "@/config/fonts";
+import { robotoMono } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   title: "Rifat Khan (StepAsideLiL)",

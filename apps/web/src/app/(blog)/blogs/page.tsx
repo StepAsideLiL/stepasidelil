@@ -1,10 +1,10 @@
-import { yesevaOne } from "@/config/fonts";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { format } from "date-fns";
 import { Metadata } from "next";
 import nextMetadata from "@/lib/next-metadata";
 import data from "@/lib/data";
+import { yesevaOne } from "@/lib/fonts";
 
 export async function generateMetadata(): Promise<Metadata> {
   return nextMetadata("Blogs", "Read Blogs by Rifat Khan");

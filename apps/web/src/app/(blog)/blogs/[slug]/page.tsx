@@ -1,7 +1,7 @@
 import MDXContent from "@/components/mdx-components";
 import { Badge } from "@/components/ui/badge";
-import { yesevaOne } from "@/config/fonts";
 import data from "@/lib/data";
+import { yesevaOne } from "@/lib/fonts";
 import nextMetadata from "@/lib/next-metadata";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";

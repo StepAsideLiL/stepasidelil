@@ -1,9 +1,9 @@
 import { ImageResponse } from "next/og";
-import { siteConfig } from "@/config/site";
 import ProfileSvg from "@/components/profile-svg";
 import { NextRequest } from "next/server";
 import fs from "fs";
 import path from "path";
+import siteConfig from "@/lib/site-config";
 
 const robotoMonoBold = fs.readFileSync(
   path.join(process.cwd(), "public/fonts/RobotoMono-Bold.ttf")
