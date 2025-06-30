@@ -1,6 +1,7 @@
 const siteConfig = {
   name: "Rifat Khan (StepAsideLiL)",
   url: "https://stepasidelil.vercel.app/",
+  profilePicture: "https://github.com/stepasidelil.png",
   description: "Personal Portfolio, Projects, and Blogs of Rifat Khan",
   author: {
     name: "Rifat Khan",

@@ -1,9 +1,9 @@
 import { ImageResponse } from "next/og";
-import ProfileSvg from "@/components/profile-svg";
 import { NextRequest } from "next/server";
 import fs from "fs";
 import path from "path";
 import siteConfig from "@/lib/site-config";
+import ProfileImage from "@/components/ProfileImage";
 
 const robotoMonoBold = fs.readFileSync(
   path.join(process.cwd(), "public/fonts/RobotoMono-Bold.ttf")
@@ -45,7 +45,7 @@ export async function GET(req: NextRequest) {
                 alignItems: "center",
               }}
             >
-              <ProfileSvg size={50} />
+              <ProfileImage size={50} api />
               <h1
                 style={{
                   fontSize: "3rem",

@@ -11,6 +11,9 @@ if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   transpilePackages: ["@workspace/design-system"],
+  images: {
+    remotePatterns: [new URL("https://github.com/**")],
+  },
 };
 
 export default nextConfig;

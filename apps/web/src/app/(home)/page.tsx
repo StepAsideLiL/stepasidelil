@@ -1,6 +1,6 @@
 import { CopyEmail } from "@/components/client-components";
 import { email, socialLinks } from "@/components/portfolio-info-ui";
-import ProfileSvg from "@/components/profile-svg";
+import ProfileImage from "@/components/ProfileImage";
 import nextMetadata from "@/lib/next-metadata";
 import { cn } from "@/lib/utils";
 import { SquareArrowOutUpRight } from "lucide-react";
@@ -18,7 +18,7 @@ export default function Page() {
         <Card className="cursor-default">
           <div className="flex-1 space-y-5">
             <div className="flex items-center gap-5">
-              <ProfileSvg size={70} />
+              <ProfileImage />
 
               <div>
                 <h3 className="text-2xl font-semibold">Rifat Khan</h3>

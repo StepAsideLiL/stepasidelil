@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ModeSwitch, NavMenu } from "./client-components";
-import ProfileSvg from "./profile-svg";
+import ProfileImage from "./ProfileImage";
 
 export function MainNavbar() {
   return (
@@ -8,7 +8,7 @@ export function MainNavbar() {
       <div className="mx-auto flex max-w-3xl items-center justify-between gap-2 px-10 py-5">
         <div className="flex items-center gap-5">
           <Link href={"/"}>
-            <ProfileSvg size={30} />
+            <ProfileImage size={30} />
           </Link>
 
           <NavMenu />
