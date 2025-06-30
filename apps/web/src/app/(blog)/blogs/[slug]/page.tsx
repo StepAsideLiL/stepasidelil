@@ -2,7 +2,7 @@ import blogs from "#blogs";
 import MDXContent from "@/components/mdx-components";
 import { Badge } from "@/components/ui/badge";
 import { yesevaOne } from "@/config/fonts";
-import { siteConfig } from "@/config/site";
+import nextMetadata from "@/lib/next-metadata";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 import { Metadata } from "next";
@@ -24,32 +24,7 @@ export async function generateMetadata({
     return {};
   }
 
-  const ogSearchParams = new URLSearchParams();
-  ogSearchParams.set("title", blog.title);
-
-  return {
-    title: blog.title,
-    description: blog.description,
-    authors: {
-      name: siteConfig.author.name,
-      url: siteConfig.author.url,
-    },
-    metadataBase: new URL("https://stepasidelil.vercel.app/"),
-    openGraph: {
-      title: blog.title,
-      description: blog.description,
-      type: "website",
-      url: siteConfig.author.url,
-      images: [
-        {
-          url: `/api/og/g?${ogSearchParams.toString()}`,
-          width: 1200,
-          height: 630,
-          alt: "Blogs by Rifat Khan",
-        },
-      ],
-    },
-  };
+  return nextMetadata(blog.title, blog.description);
 }
 
 export default async function Page({ params }: BlogPageProps) {

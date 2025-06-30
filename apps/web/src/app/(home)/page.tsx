@@ -1,39 +1,14 @@
 import { CopyEmail } from "@/components/client-components";
 import { email, socialLinks } from "@/components/portfolio-info-ui";
 import ProfileSvg from "@/components/profile-svg";
-import { siteConfig } from "@/config/site";
+import nextMetadata from "@/lib/next-metadata";
 import { cn } from "@/lib/utils";
 import { SquareArrowOutUpRight } from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const ogSearchParams = new URLSearchParams();
-  ogSearchParams.set("title", "Home Page");
-
-  return {
-    title: siteConfig.name,
-    description: siteConfig.description,
-    authors: {
-      name: siteConfig.author.name,
-      url: siteConfig.author.url,
-    },
-    metadataBase: new URL("https://stepasidelil.vercel.app/"),
-    openGraph: {
-      title: siteConfig.name,
-      description: siteConfig.description,
-      type: "website",
-      url: siteConfig.author.url,
-      images: [
-        {
-          url: `/api/og/g?${ogSearchParams.toString()}`,
-          width: 1200,
-          height: 630,
-          alt: siteConfig.name,
-        },
-      ],
-    },
-  };
+  return nextMetadata("Home Page");
 }
 
 export default function Page() {
@@ -119,7 +94,7 @@ function Card({
     return (
       <div
         className={cn(
-          "flex w-full flex-1 flex-col gap-10 border p-10 transition-colors hover:bg-foreground hover:text-background",
+          "hover:bg-foreground hover:text-background flex w-full flex-1 flex-col gap-10 border p-10 transition-colors",
           className
         )}
       >
@@ -132,7 +107,7 @@ function Card({
     <Link
       href={href}
       className={cn(
-        "flex w-full flex-1 flex-col gap-10 border p-10 transition-colors hover:bg-foreground hover:text-background",
+        "hover:bg-foreground hover:text-background flex w-full flex-1 flex-col gap-10 border p-10 transition-colors",
         className
       )}
     >

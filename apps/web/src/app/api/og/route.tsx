@@ -5,10 +5,6 @@ import { NextRequest } from "next/server";
 import fs from "fs";
 import path from "path";
 
-// const baseUrl = process.env.VERCEL_URL
-//   ? `https://${process.env.VERCEL_URL}`
-//   : "http://localhost:3000";
-
 const robotoMonoBold = fs.readFileSync(
   path.join(process.cwd(), "public/fonts/RobotoMono-Bold.ttf")
 );

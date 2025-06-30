@@ -1,6 +1,6 @@
 import portfilio from "#portfolio";
 import MDXContent from "@/components/mdx-components";
-import { siteConfig } from "@/config/site";
+import nextMetadata from "@/lib/next-metadata";
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
 
@@ -15,29 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
     return {};
   }
 
-  return {
-    title: portfilio.title,
-    description: portfilio.description,
-    authors: {
-      name: siteConfig.author.name,
-      url: siteConfig.author.url,
-    },
-    metadataBase: new URL("https://stepasidelil.vercel.app/"),
-    openGraph: {
-      title: portfilio.title,
-      description: portfilio.description,
-      type: "website",
-      url: siteConfig.author.url,
-      images: [
-        {
-          url: `/api/og/g`,
-          width: 1200,
-          height: 630,
-          alt: portfilio.title,
-        },
-      ],
-    },
-  };
+  return nextMetadata(portfilio.title, portfilio.description);
 }
 
 export default async function Page() {
