@@ -52,6 +52,7 @@ const filesToModify: FilesToModify[] = [
   },
 ];
 
+// Cli command
 const program = new Command(packageJSON.name)
   .version(
     packageJSON.version,
@@ -76,6 +77,7 @@ const { args } = program;
  * Run cli
  */
 async function runCli() {
+  // Set project name
   if (args.length === 0 || args[0] === undefined) {
     const { projectName } = await prompts({
       name: "projectName",
@@ -98,6 +100,7 @@ async function runCli() {
     projectInfo.projectName = args[0];
   }
 
+  // Set site title
   if (programOptions.siteTitle === undefined) {
     const { siteTitle } = await prompts({
       name: "siteTitle",
@@ -113,6 +116,7 @@ async function runCli() {
     projectInfo.siteTitle = programOptions.siteTitle;
   }
 
+  // Set site description
   if (programOptions.siteDescription === undefined) {
     const { siteDescription } = await prompts({
       name: "siteDescription",
@@ -128,8 +132,7 @@ async function runCli() {
     projectInfo.siteDescription = programOptions.siteDescription;
   }
 
-  console.log(projectInfo, process.cwd());
-
+  // Clone little-proj
   const exec = util.promisify((await import("child_process")).exec);
 
   const gitExistSpinner = ora("Checking for Git...").start();
@@ -156,6 +159,7 @@ async function runCli() {
       process.exit(1);
     });
 
+  // Modify files
   const modifyFilesSpinner = ora("Modifying files...").start();
   Promise.all(
     filesToModify.map((file) => {
