@@ -1,0 +1,30 @@
+{
+  "name": "@stepasidelil/create-little-proj",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup",
+    "clean": "rimraf dist",
+    "link-cli": "npm unlink -g && npm link",
+    "unlink-cli": "npm unlink -g"
+  },
+  "bin": {
+    "create-little-proj": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.10.0",
+  "devDependencies": {
+    "@types/node": "^24.0.7",
+    "@workspace/eslint-config": "workspace:*",
+    "@workspace/typescript-config": "workspace:*",
+    "rimraf": "^6.0.1",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3"
+  }
+}
