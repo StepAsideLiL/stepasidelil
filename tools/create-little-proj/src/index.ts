@@ -7,6 +7,7 @@ import { basename, resolve } from "path";
 import { validatePackageName } from "@/helpers/validate-package-name";
 import util from "util";
 import ora from "ora";
+import fs from "fs";
 
 const handleSigTerm = () => process.exit(0);
 
@@ -19,7 +20,37 @@ const projectInfo = {
   siteDescription: "Site Description of My Little Website",
 };
 const littleProjRepoURL = "https://github.com/StepAsideLiL/little-proj.git";
-const siteConfig = "/apps/web/src/lib/site-config/index.ts";
+type FilesToModify = {
+  filePath: string;
+  replace: {
+    optionName: keyof typeof projectInfo;
+    target: string;
+  }[];
+};
+const filesToModify: FilesToModify[] = [
+  {
+    filePath: "package.json",
+    replace: [
+      {
+        optionName: "projectName",
+        target: "little-proj",
+      },
+    ],
+  },
+  {
+    filePath: "apps/web/src/lib/site-config/index.ts",
+    replace: [
+      {
+        optionName: "siteTitle",
+        target: "Little Proj",
+      },
+      {
+        optionName: "siteDescription",
+        target: "Minimalistic Starter Kit for Next.js",
+      },
+    ],
+  },
+];
 
 const program = new Command(packageJSON.name)
   .version(
@@ -121,6 +152,45 @@ async function runCli() {
     })
     .catch((error) => {
       gitCloneSpinner.fail(" Failed to clone little-proj");
+      console.error(error);
+      process.exit(1);
+    });
+
+  const modifyFilesSpinner = ora("Modifying files...").start();
+  Promise.all(
+    filesToModify.map((file) => {
+      const absoluteFilePath = resolve(projectInfo.projectName, file.filePath);
+      fs.readFile(absoluteFilePath, "utf8", (err, data) => {
+        if (err) {
+          modifyFilesSpinner.fail(" Failed to read file");
+          console.error(err);
+          process.exit(1);
+        }
+
+        let content = data;
+
+        file.replace.forEach((replace) => {
+          content = content.replace(
+            replace.target,
+            projectInfo[replace.optionName]
+          );
+        });
+
+        fs.writeFile(absoluteFilePath, content, (err) => {
+          if (err) {
+            modifyFilesSpinner.fail(" Failed to write file");
+            console.error(err);
+            process.exit(1);
+          }
+        });
+      });
+    })
+  )
+    .then(() => {
+      modifyFilesSpinner.succeed(" Files modified");
+    })
+    .catch((error) => {
+      gitCloneSpinner.fail(" Failed to modify");
       console.error(error);
       process.exit(1);
     });
