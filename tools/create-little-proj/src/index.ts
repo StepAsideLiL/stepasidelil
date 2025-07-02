@@ -4,53 +4,16 @@ import { Command } from "commander";
 import prompts from "prompts";
 import packageJSON from "../package.json";
 import { basename, resolve } from "path";
-import { validatePackageName } from "@/helpers/validate-package-name";
+import { validatePackageName } from "@/lib/validate-package-name";
 import util from "util";
 import ora from "ora";
 import fs from "fs";
+import { filesToModify, littleProjRepoURL, projectInfo } from "@/lib/constent";
 
 const handleSigTerm = () => process.exit(0);
 
 process.on("SIGINT", handleSigTerm);
 process.on("SIGTERM", handleSigTerm);
-
-const projectInfo = {
-  projectName: "my-little-proj",
-  siteTitle: "My Little Website",
-  siteDescription: "Site Description of My Little Website",
-};
-const littleProjRepoURL = "https://github.com/StepAsideLiL/little-proj.git";
-type FilesToModify = {
-  filePath: string;
-  replace: {
-    optionName: keyof typeof projectInfo;
-    target: string;
-  }[];
-};
-const filesToModify: FilesToModify[] = [
-  {
-    filePath: "package.json",
-    replace: [
-      {
-        optionName: "projectName",
-        target: "little-proj",
-      },
-    ],
-  },
-  {
-    filePath: "apps/web/src/lib/site-config/index.ts",
-    replace: [
-      {
-        optionName: "siteTitle",
-        target: "Little Proj",
-      },
-      {
-        optionName: "siteDescription",
-        target: "Minimalistic Starter Kit for Next.js",
-      },
-    ],
-  },
-];
 
 // Cli command
 const program = new Command(packageJSON.name)
