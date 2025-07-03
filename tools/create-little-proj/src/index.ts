@@ -37,6 +37,8 @@ const programOptions: {
 } = program.opts();
 const { args } = program;
 
+let projectPath: string = "";
+
 /**
  * Run cli
  */
@@ -59,6 +61,7 @@ async function runCli() {
 
     if (typeof projectName === "string") {
       projectInfo.projectName = projectName.trim();
+      projectPath = resolve(projectName);
     }
   } else {
     if (args[0] === ".") {
@@ -70,6 +73,7 @@ async function runCli() {
     }
 
     projectInfo.projectName = args[0];
+    projectPath = resolve(args[0]);
   }
 
   // Set site title
@@ -175,6 +179,31 @@ async function runCli() {
     .catch((error) => {
       gitCloneSpinner.fail(pc.red(" Failed to modify"));
       console.error(error);
+      process.exit(1);
+    });
+
+  // Delete and Initiate Git
+  const gitInitSpinner = ora("Initiating Git...").start();
+  const dotGitPath = resolve(projectPath, ".git");
+  fs.stat(dotGitPath, (err, stats) => {
+    if (stats.isDirectory()) {
+      fs.rm(dotGitPath, { recursive: true, force: true }, (err) => {
+        if (err) {
+          gitInitSpinner.fail(pc.red(" Failed to delete .git"));
+          console.error(err);
+          process.exit(1);
+        }
+      });
+    }
+  });
+
+  await exec(`git init ${projectPath}`)
+    .then(async () => {
+      gitInitSpinner.succeed(pc.green(" Git initiated"));
+    })
+    .catch((error) => {
+      gitInitSpinner.fail(pc.red(" Failed to initiate git"));
+      console.error(pc.red(error));
       process.exit(1);
     });
 }
