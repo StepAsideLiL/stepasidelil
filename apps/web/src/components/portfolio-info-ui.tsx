@@ -1,20 +1,4 @@
-import {
-  SiAmazonwebservices,
-  SiDocker,
-  SiElectron,
-  SiExpo,
-  SiGithub,
-  SiGo,
-  SiInstagram,
-  SiJavascript,
-  SiLinkedin,
-  SiNextdotjs,
-  SiNodedotjs,
-  SiRust,
-  SiTailwindcss,
-  SiTypescript,
-  SiX,
-} from "react-icons/si";
+import Icons from "@workspace/design-system/icons";
 import {
   Card,
   CardContent,
@@ -36,25 +20,25 @@ export const email = "rifat6633@gmail.com";
 export const socialLinks = [
   {
     title: "GitHub",
-    icon: SiGithub,
+    icon: Icons.Simple.SiGithub,
     href: "https://github.com/StepAsideLiL",
     username: "StepAsideLiL",
   },
   {
     title: "LinkedIn",
-    icon: SiLinkedin,
+    icon: Icons.Simple.SiLinkedin,
     href: "https://www.linkedin.com/in/mdabdullahrifatkhan/",
     username: "mdabdullahrifatkhan",
   },
   {
     title: "Twitter",
-    icon: SiX,
+    icon: Icons.Simple.SiX,
     href: "https://twitter.com/StepAsideLiL",
     username: "StepAsideLiL",
   },
   {
     title: "Instagram",
-    icon: SiInstagram,
+    icon: Icons.Simple.SiInstagram,
     href: "https://www.instagram.com/stepasidelil",
     username: "stepasidelil",
   },
@@ -64,23 +48,23 @@ export const skills = {
   topSkills: [
     {
       title: "JavaScript",
-      icon: SiJavascript,
+      icon: Icons.Simple.SiJavascript,
     },
     {
       title: "TypeScript",
-      icon: SiTypescript,
+      icon: Icons.Simple.SiTypescript,
     },
     {
       title: "Nextjs",
-      icon: SiNextdotjs,
+      icon: Icons.Simple.SiNextdotjs,
     },
     {
       title: "TailwindCSS",
-      icon: SiTailwindcss,
+      icon: Icons.Simple.SiTailwindcss,
     },
     {
       title: "Nodejs",
-      icon: SiNodedotjs,
+      icon: Icons.Simple.SiNodedotjs,
     },
   ],
   experties: [
@@ -232,27 +216,27 @@ export const skills = {
   interestedTechnologies: [
     {
       title: "Expo",
-      icon: SiExpo,
+      icon: Icons.Simple.SiExpo,
     },
     {
       title: "Electronjs",
-      icon: SiElectron,
+      icon: Icons.Simple.SiElectron,
     },
     {
       title: "Rust",
-      icon: SiRust,
+      icon: Icons.Simple.SiRust,
     },
     {
       title: "Go",
-      icon: SiGo,
+      icon: Icons.Simple.SiGo,
     },
     {
       title: "Docker",
-      icon: SiDocker,
+      icon: Icons.Simple.SiDocker,
     },
     {
       title: "AWS",
-      icon: SiAmazonwebservices,
+      icon: Icons.Simple.SiAmazonwebservices,
     },
   ],
 };
