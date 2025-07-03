@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { Check, Copy, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { Button } from "@/components/ui/button";
+import { Button } from "@workspace/design-system/ui/button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 

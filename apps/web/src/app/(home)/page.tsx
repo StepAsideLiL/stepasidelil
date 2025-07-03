@@ -2,7 +2,7 @@ import { CopyEmail } from "@/components/client-components";
 import { email, socialLinks } from "@/components/portfolio-info-ui";
 import ProfileImage from "@/components/ProfileImage";
 import nextMetadata from "@/lib/next-metadata";
-import { cn } from "@/lib/utils";
+import { cn } from "@workspace/design-system/lib/utils";
 import { SquareArrowOutUpRight } from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";

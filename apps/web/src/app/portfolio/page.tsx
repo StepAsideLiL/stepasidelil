@@ -1,7 +1,7 @@
 import MDXContent from "@/components/mdx-components";
 import data from "@/lib/data";
 import nextMetadata from "@/lib/next-metadata";
-import { cn } from "@/lib/utils";
+import { cn } from "@workspace/design-system/lib/utils";
 import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
