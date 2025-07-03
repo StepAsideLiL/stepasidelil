@@ -60,6 +60,14 @@ async function runCli() {
       projectInfo.projectName = projectName.trim();
     }
   } else {
+    if (args[0] === ".") {
+      const validate = validatePackageName(basename(process.cwd()));
+      if (!validate.isValid) {
+        console.error(validate.error.join(",\n"));
+        process.exit(1);
+      }
+    }
+
     projectInfo.projectName = args[0];
   }
 
@@ -137,10 +145,17 @@ async function runCli() {
         let content = data;
 
         file.replace.forEach((replace) => {
-          content = content.replace(
-            replace.target,
-            projectInfo[replace.optionName]
-          );
+          if (
+            replace.optionName === "projectName" &&
+            projectInfo.projectName === "."
+          ) {
+            content = content.replace(replace.target, basename(process.cwd()));
+          } else {
+            content = content.replace(
+              replace.target,
+              projectInfo[replace.optionName]
+            );
+          }
         });
 
         fs.writeFile(absoluteFilePath, content, (err) => {
