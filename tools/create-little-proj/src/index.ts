@@ -9,6 +9,7 @@ import util from "util";
 import ora from "ora";
 import fs from "fs";
 import { filesToModify, littleProjRepoURL, projectInfo } from "@/lib/constent";
+import pc from "picocolors";
 
 const handleSigTerm = () => process.exit(0);
 
@@ -52,7 +53,7 @@ async function runCli() {
         if (validate.isValid) {
           return true;
         }
-        return "Invalid project name: " + validate.error.join(",\n");
+        return "Invalid project name: " + pc.red(validate.error.join(",\n"));
       },
     });
 
@@ -63,7 +64,7 @@ async function runCli() {
     if (args[0] === ".") {
       const validate = validatePackageName(basename(process.cwd()));
       if (!validate.isValid) {
-        console.error(validate.error.join(",\n"));
+        console.error(pc.red(validate.error.join(",\n")));
         process.exit(1);
       }
     }
@@ -112,7 +113,7 @@ async function runCli() {
       gitExistSpinner.succeed(" Git found");
     })
     .catch((error) => {
-      gitExistSpinner.fail(" Git not found");
+      gitExistSpinner.fail(pc.red(" Git not found"));
       console.error(error);
       process.exit(1);
     });
@@ -125,7 +126,7 @@ async function runCli() {
       );
     })
     .catch((error) => {
-      gitCloneSpinner.fail(" Failed to clone little-proj");
+      gitCloneSpinner.fail(pc.red(" Failed to clone little-proj"));
       console.error(error);
       process.exit(1);
     });
@@ -137,7 +138,7 @@ async function runCli() {
       const absoluteFilePath = resolve(projectInfo.projectName, file.filePath);
       fs.readFile(absoluteFilePath, "utf8", (err, data) => {
         if (err) {
-          modifyFilesSpinner.fail(" Failed to read file");
+          modifyFilesSpinner.fail(pc.red(" Failed to read file"));
           console.error(err);
           process.exit(1);
         }
@@ -160,7 +161,7 @@ async function runCli() {
 
         fs.writeFile(absoluteFilePath, content, (err) => {
           if (err) {
-            modifyFilesSpinner.fail(" Failed to write file");
+            modifyFilesSpinner.fail(pc.red(" Failed to write file"));
             console.error(err);
             process.exit(1);
           }
@@ -172,7 +173,7 @@ async function runCli() {
       modifyFilesSpinner.succeed(" Files modified");
     })
     .catch((error) => {
-      gitCloneSpinner.fail(" Failed to modify");
+      gitCloneSpinner.fail(pc.red(" Failed to modify"));
       console.error(error);
       process.exit(1);
     });
