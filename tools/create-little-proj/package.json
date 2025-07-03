@@ -1,6 +1,6 @@
 {
   "name": "@stepasidelil/create-little-proj",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Create a new little-proj project",
   "author": {
     "name": "Rifat Khan",
@@ -32,7 +32,7 @@
     "link-cli": "npm unlink -g && npm link",
     "unlink-cli": "npm unlink -g",
     "pub:latest": "pnpm build && pnpm publish --access public",
-    "pub:next": "pnpm build && pnpm publish --access public --tag next"
+    "pub:next": "pnpm build && pnpm publish --access public --tag next --no-git-checks"
   },
   "packageManager": "pnpm@10.10.0",
   "devDependencies": {
