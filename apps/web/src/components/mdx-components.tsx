@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@workspace/design-system/lib/utils";
 import * as runtime from "react/jsx-runtime";
 import {
   Contact,

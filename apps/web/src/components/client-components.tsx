@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@workspace/design-system/lib/utils";
 import { useState } from "react";
 import { Check, Copy, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";

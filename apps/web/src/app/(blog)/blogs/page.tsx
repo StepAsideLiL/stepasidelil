@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@workspace/design-system/lib/utils";
 import Link from "next/link";
 import { format } from "date-fns";
 import { Metadata } from "next";
