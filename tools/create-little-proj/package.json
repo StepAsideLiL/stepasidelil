@@ -1,23 +1,39 @@
 {
   "name": "@stepasidelil/create-little-proj",
   "version": "0.1.0",
-  "description": "",
+  "description": "Create a new little-proj project",
+  "author": {
+    "name": "Rifat Khan",
+    "url": "https://github.com/StepAsideLiL"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/StepAsideLiL/archiject",
+    "directory": "packages/create-archihect-app"
+  },
+  "keywords": [
+    "stepasidelil",
+    "little",
+    "little-proj",
+    "create-little-proj"
+  ],
+  "license": "MIT",
+  "bin": {
+    "create-little-proj": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "package.json"
+  ],
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
     "clean": "rimraf dist",
     "link-cli": "npm unlink -g && npm link",
-    "unlink-cli": "npm unlink -g"
+    "unlink-cli": "npm unlink -g",
+    "pub:latest": "pnpm build && pnpm publish --access public",
+    "pub:next": "pnpm build && pnpm publish --access public --tag next"
   },
-  "bin": {
-    "create-little-proj": "./dist/index.js"
-  },
-  "files": [
-    "dist"
-  ],
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "packageManager": "pnpm@10.10.0",
   "devDependencies": {
     "@types/node": "^24.0.7",
