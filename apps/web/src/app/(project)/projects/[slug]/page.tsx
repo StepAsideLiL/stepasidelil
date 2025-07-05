@@ -1,5 +1,9 @@
+import MDXContent from "@/components/mdx-components";
 import data from "@/lib/data";
+import { yesevaOne } from "@/lib/fonts";
 import nextMetadata from "@/lib/next-metadata";
+import { cn } from "@workspace/design-system/lib/utils";
+import { Badge } from "@workspace/design-system/ui/badge";
 import { Metadata } from "next";
 
 type ProjectPageProps = { params: Promise<{ slug: string }> };
@@ -27,5 +31,26 @@ export default async function Page({ params }: ProjectPageProps) {
     );
   }
 
-  return <div>Page</div>;
+  return (
+    <>
+      <div className="space-y-2">
+        {/* <p>{format(new Date(blog.date), "dd MMMM, yyyy")}</p> */}
+
+        <div className="flex items-center gap-1">
+          {project.tags.map((tag, i) => (
+            <Badge key={i} variant={"secondary"}>
+              {tag}
+            </Badge>
+          ))}
+        </div>
+      </div>
+
+      <h1 className={cn("py-3 text-5xl font-bold", yesevaOne.className)}>
+        {project.title}
+      </h1>
+      <div className="">
+        <MDXContent content={project.content} />
+      </div>
+    </>
+  );
 }
