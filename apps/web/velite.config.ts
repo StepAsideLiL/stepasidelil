@@ -1,6 +1,7 @@
 import { defineConfig, defineCollection, s } from "velite";
 import rehypeSlug from "rehype-slug";
 import rehypePrettyCode from "rehype-pretty-code";
+import type { UserConfig } from "velite";
 
 const blogs = defineCollection({
   name: "Blog",
@@ -39,7 +40,7 @@ const portfolio = defineCollection({
   }),
 });
 
-const config = defineConfig({
+export default defineConfig({
   root: "src/content",
   output: {
     data: "./.velite",
@@ -54,5 +55,3 @@ const config = defineConfig({
     remarkPlugins: [],
   },
 });
-
-export default config;
