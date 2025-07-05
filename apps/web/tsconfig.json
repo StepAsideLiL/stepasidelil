@@ -6,7 +6,8 @@
       "@/*": ["./src/*"],
       "@workspace/design-system/*": ["../../packages/design-system/src/*"],
       "#blogs": ["./.velite/blogs.json"],
-      "#portfolio": ["./.velite/portfolio.json"]
+      "#portfolio": ["./.velite/portfolio.json"],
+      "#project": ["./.velite/projects.json"]
     },
     "plugins": [
       {

@@ -1,7 +1,6 @@
 import { defineConfig, defineCollection, s } from "velite";
 import rehypeSlug from "rehype-slug";
 import rehypePrettyCode from "rehype-pretty-code";
-import type { UserConfig } from "velite";
 
 const blogs = defineCollection({
   name: "Blog",
@@ -38,6 +37,29 @@ const portfolio = defineCollection({
     content: s.mdx(),
     toc: s.toc(),
   }),
+  single: true,
+});
+
+const projects = defineCollection({
+  name: "Projects",
+  pattern: "projects/**/*.mdx",
+  schema: s
+    .object({
+      title: s.string(),
+      slug: s.path(),
+      description: s.string().max(999).optional(),
+      githubLink: s.string().optional(),
+      tags: s.array(s.string()).optional(),
+      metadata: s.metadata(), // extract markdown reading-time, word-count, etc.
+      excerpt: s.excerpt(), // excerpt of markdown content
+      content: s.mdx(),
+      toc: s.toc(),
+    })
+    .transform((data) => ({
+      ...data,
+      slugAsParams: data.slug.split("/").slice(1).join("/"),
+      permalink: `/${data.slug}`,
+    })),
 });
 
 export default defineConfig({
@@ -49,7 +71,7 @@ export default defineConfig({
     name: "[name]-[hash:6].[ext]",
     clean: true,
   },
-  collections: { blogs, portfolio },
+  collections: { blogs, portfolio, projects },
   mdx: {
     rehypePlugins: [rehypeSlug, [rehypePrettyCode, { theme: "github-dark" }]],
     remarkPlugins: [],

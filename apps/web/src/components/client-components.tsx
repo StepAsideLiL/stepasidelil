@@ -67,6 +67,10 @@ export function NavMenu() {
       title: "Blogs",
       href: "/blogs",
     },
+    {
+      title: "Projects",
+      href: "/projects",
+    },
   ];
 
   const pathname = usePathname();

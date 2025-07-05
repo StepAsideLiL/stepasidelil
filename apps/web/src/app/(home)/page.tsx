@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function Page() {
   return (
-    <div className="flex w-full flex-grow flex-col gap-10 lg:flex-row">
+    <div className="grid w-full flex-grow grid-cols-1 gap-10 lg:grid-cols-3">
       <Card className="cursor-default">
         <div className="flex-1 space-y-5">
           <div className="flex items-center gap-5">
@@ -59,22 +59,40 @@ export default function Page() {
         </CardSubtitle>
       </Card>
 
-      <Card href="/blogs">
-        <CardTitle>
-          <div className="flex items-center justify-end gap-4">
-            Blogs
-            <span className="inline-block lg:hidden">
-              <SquareArrowOutUpRight />
-            </span>
-          </div>
-        </CardTitle>
+      <div className="flex flex-col gap-10 lg:flex-col">
+        <Card href="/blogs">
+          <CardTitle>
+            <div className="flex items-center justify-end gap-4">
+              Blogs
+              <span className="inline-block lg:hidden">
+                <SquareArrowOutUpRight />
+              </span>
+            </div>
+          </CardTitle>
 
-        <CardSubtitle>
-          If your are interested in my opinions, check out my blogs. I mainly
-          talk about Web Development. But who knows, maybe I will talk about
-          something else.
-        </CardSubtitle>
-      </Card>
+          <CardSubtitle>
+            If your are interested in my opinions, check out my blogs. I mainly
+            talk about Web Development. But who knows, maybe I will talk about
+            something else.
+          </CardSubtitle>
+        </Card>
+
+        <Card href="/projects">
+          <CardTitle>
+            <div className="flex items-center justify-end gap-4">
+              Pojects
+              <span className="inline-block lg:hidden">
+                <SquareArrowOutUpRight />
+              </span>
+            </div>
+          </CardTitle>
+
+          <CardSubtitle>
+            If your are interested in my projects, here is a list of interesting
+            projects that you may find interesting.
+          </CardSubtitle>
+        </Card>
+      </div>
     </div>
   );
 }
