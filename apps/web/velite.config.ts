@@ -1,6 +1,4 @@
 import { defineConfig, defineCollection, s } from "velite";
-import rehypeSlug from "rehype-slug";
-import rehypePrettyCode from "rehype-pretty-code";
 
 const blogs = defineCollection({
   name: "Blog",
@@ -72,8 +70,4 @@ export default defineConfig({
     clean: true,
   },
   collections: { blogs, portfolio, projects },
-  mdx: {
-    rehypePlugins: [rehypeSlug, [rehypePrettyCode, { theme: "github-dark" }]],
-    remarkPlugins: [],
-  },
 });

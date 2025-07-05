@@ -2,11 +2,11 @@
 
 import { cn } from "@workspace/design-system/lib/utils";
 import { useState } from "react";
-import { Check, Copy, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@workspace/design-system/ui/button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Icons from "@workspace/design-system/icons";
 
 export function ModeSwitch() {
   const { theme, systemTheme, setTheme } = useTheme();
@@ -20,8 +20,8 @@ export function ModeSwitch() {
 
   return (
     <Button onClick={() => changeTheme()} className="w-fit">
-      <Sun className="h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
-      <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
+      <Icons.Lucide.Sun className="h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
+      <Icons.Lucide.Moon className="absolute h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
       <span className="sr-only">Toggle theme</span>
     </Button>
   );
@@ -52,7 +52,13 @@ export function CopyEmail({
       onClick={() => copyToClipboard()}
     >
       <p>{email}</p>
-      <span>{!copied ? <Copy size={16} /> : <Check size={16} />}</span>
+      <span>
+        {!copied ? (
+          <Icons.Lucide.Copy size={16} />
+        ) : (
+          <Icons.Lucide.Check size={16} />
+        )}
+      </span>
     </div>
   );
 }

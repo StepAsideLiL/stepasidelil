@@ -2,8 +2,8 @@ import { CopyEmail } from "@/components/client-components";
 import { email, socialLinks } from "@/components/portfolio-info-ui";
 import ProfileImage from "@/components/ProfileImage";
 import nextMetadata from "@/lib/next-metadata";
+import Icons from "@workspace/design-system/icons";
 import { cn } from "@workspace/design-system/lib/utils";
-import { SquareArrowOutUpRight } from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";
 
@@ -49,7 +49,7 @@ export default function Page() {
           <div className="flex items-center justify-end gap-4">
             Portfolio
             <span className="inline-block lg:hidden">
-              <SquareArrowOutUpRight />
+              <Icons.Lucide.SquareArrowOutUpRight />
             </span>
           </div>
         </CardTitle>
@@ -65,7 +65,7 @@ export default function Page() {
             <div className="flex items-center justify-end gap-4">
               Blogs
               <span className="inline-block lg:hidden">
-                <SquareArrowOutUpRight />
+                <Icons.Lucide.SquareArrowOutUpRight />
               </span>
             </div>
           </CardTitle>
@@ -82,7 +82,7 @@ export default function Page() {
             <div className="flex items-center justify-end gap-4">
               Pojects
               <span className="inline-block lg:hidden">
-                <SquareArrowOutUpRight />
+                <Icons.Lucide.SquareArrowOutUpRight />
               </span>
             </div>
           </CardTitle>

@@ -8,6 +8,8 @@ import {
   Projects,
   TopSkills,
 } from "@/components/portfolio-info-ui";
+import { isValidElement, ReactElement } from "react";
+import CopyButton from "@/components/CopyButton";
 
 type MdxProps = {
   content: string;
@@ -54,6 +56,42 @@ const components = {
       {...props}
     />
   ),
+  ol: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
+    <ol className={cn("list-inside list-decimal", className)} {...props} />
+  ),
+  ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
+    <ul className={cn("list-inside list-disc", className)} {...props} />
+  ),
+  code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
+    <code className={cn("font-mono", className)} {...props} />
+  ),
+  pre: ({ className, ...props }: React.HTMLAttributes<HTMLPreElement>) => {
+    const child = props.children as React.ReactElement;
+
+    let codeText = "";
+
+    if (isValidElement(child)) {
+      const codeElement = child as ReactElement<{ children: string }>;
+
+      if (typeof codeElement.props.children === "string") {
+        codeText = codeElement.props.children;
+      }
+    }
+
+    return (
+      <pre
+        className={cn(
+          "bg-muted my-2 flex items-center justify-between overflow-x-auto px-5 py-2",
+          className
+        )}
+        {...props}
+      >
+        {props.children}
+
+        <CopyButton copyText={codeText} />
+      </pre>
+    );
+  },
   Introduction,
   Contact,
   TopSkills,
