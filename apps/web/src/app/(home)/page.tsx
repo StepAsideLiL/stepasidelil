@@ -13,8 +13,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function Page() {
   return (
-    <div className="grid w-full flex-grow grid-cols-2 gap-0 lg:grid-cols-3 xl:gap-10">
-      <Card className="col-span-2 flex-col md:flex-row lg:col-span-1 lg:flex-col">
+    <div className="grid w-full flex-grow grid-cols-2 grid-rows-2 gap-0 lg:grid-cols-3 xl:gap-10">
+      <Card className="col-span-2 row-span-2 flex-col md:flex-row lg:col-span-1 lg:flex-col">
         <div className="flex-1 space-y-5">
           <div className="flex items-center gap-5">
             <ProfileImage size={60} />
@@ -46,56 +46,56 @@ export default function Page() {
         </div>
       </Card>
 
-      <Card href="/portfolio" className="col-span-2 md:col-span-1">
-        <div className="flex-1">
-          <div className="flex items-center justify-end gap-4">
-            <CardTitle className="">Portfolio</CardTitle>
-            <span className="inline-block md:hidden">
-              <Icons.Lucide.SquareArrowOutUpRight size={20} />
-            </span>
-          </div>
-        </div>
+      <LinkCard
+        href="/portfolio"
+        title="Portfolio"
+        subtitle="If your are interested to know about me, you can check my portfolio."
+        className="col-span-2 row-span-2 md:col-span-1"
+      />
 
-        <CardSubtitle>
-          If your are interested to know about me, you can check my portfolio.
-        </CardSubtitle>
-      </Card>
-
-      <div className="col-span-2 flex flex-col gap-0 md:col-span-1 lg:flex-col xl:gap-10">
-        <Card href="/blogs">
-          <div className="flex-1">
-            <div className="flex items-center justify-end gap-4">
-              <CardTitle className="">Blogs</CardTitle>
-              <span className="inline-block md:hidden">
-                <Icons.Lucide.SquareArrowOutUpRight size={20} />
-              </span>
-            </div>
-          </div>
-
-          <CardSubtitle>
-            If your are interested in my opinions, check out my blogs. I mainly
+      <LinkCard
+        href="/blogs"
+        title="Blogs"
+        subtitle="If your are interested in my opinions, check out my blogs. I mainly
             talk about Web Development. But who knows, maybe I will talk about
-            something else.
-          </CardSubtitle>
-        </Card>
+            something else."
+        className="col-span-2 row-span-1 md:col-span-1"
+      />
 
-        <Card href="/projects">
-          <CardTitle>
-            <div className="flex items-center justify-end gap-4">
-              Pojects
-              <span className="inline-block lg:hidden">
-                <Icons.Lucide.SquareArrowOutUpRight />
-              </span>
-            </div>
-          </CardTitle>
-
-          <CardSubtitle>
-            If your are interested in my projects, here is a list of interesting
-            projects that you may find interesting.
-          </CardSubtitle>
-        </Card>
-      </div>
+      <LinkCard
+        href="/projects"
+        title="Pojects"
+        subtitle="If your are interested in my projects, here is a list of interesting projects that you may find interesting."
+        className="col-span-2 row-span-1 md:col-span-1"
+      />
     </div>
+  );
+}
+
+function LinkCard({
+  href,
+  title,
+  subtitle,
+  className,
+}: {
+  href: string;
+  title: string;
+  subtitle: string;
+  className?: string;
+}) {
+  return (
+    <Card href={href} className={cn(className)}>
+      <div className="flex-1">
+        <div className="flex items-center justify-end gap-4">
+          <CardTitle>{title}</CardTitle>
+          <span className="inline-block md:hidden">
+            <Icons.Lucide.SquareArrowOutUpRight size={20} />
+          </span>
+        </div>
+      </div>
+
+      <CardSubtitle>{subtitle}</CardSubtitle>
+    </Card>
   );
 }
 
