@@ -13,11 +13,11 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function Page() {
   return (
-    <div className="grid w-full flex-grow grid-cols-1 gap-10 lg:grid-cols-3">
-      <Card className="cursor-default">
+    <div className="grid w-full flex-grow grid-cols-2 gap-0 lg:grid-cols-3 xl:gap-10">
+      <Card className="col-span-2 flex-col md:flex-row lg:col-span-1 lg:flex-col">
         <div className="flex-1 space-y-5">
           <div className="flex items-center gap-5">
-            <ProfileImage />
+            <ProfileImage size={60} />
 
             <div>
               <h3 className="text-2xl font-semibold">Rifat Khan</h3>
@@ -26,49 +26,51 @@ export default function Page() {
           </div>
         </div>
 
-        <CopyEmail email={email} />
+        <div className="space-y-5">
+          <CopyEmail email={email} />
 
-        <div className="flex flex-col gap-2">
-          {socialLinks.map((list) => (
-            <span key={list.href} className="flex items-center gap-2">
-              <list.icon size={20} />
-              <Link
-                href={list.href}
-                className="hover:underline"
-                target="_blank"
-              >
-                {list.username}
-              </Link>
-            </span>
-          ))}
+          <div className="flex flex-col gap-2">
+            {socialLinks.map((list) => (
+              <span key={list.href} className="flex items-center gap-2">
+                <list.icon size={20} />
+                <Link
+                  href={list.href}
+                  className="hover:underline"
+                  target="_blank"
+                >
+                  {list.username}
+                </Link>
+              </span>
+            ))}
+          </div>
         </div>
       </Card>
 
-      <Card href="/portfolio">
-        <CardTitle>
+      <Card href="/portfolio" className="col-span-2 md:col-span-1">
+        <div className="flex-1">
           <div className="flex items-center justify-end gap-4">
-            Portfolio
-            <span className="inline-block lg:hidden">
-              <Icons.Lucide.SquareArrowOutUpRight />
+            <CardTitle className="">Portfolio</CardTitle>
+            <span className="inline-block md:hidden">
+              <Icons.Lucide.SquareArrowOutUpRight size={20} />
             </span>
           </div>
-        </CardTitle>
+        </div>
 
         <CardSubtitle>
           If your are interested to know about me, you can check my portfolio.
         </CardSubtitle>
       </Card>
 
-      <div className="flex flex-col gap-10 lg:flex-col">
+      <div className="col-span-2 flex flex-col gap-0 md:col-span-1 lg:flex-col xl:gap-10">
         <Card href="/blogs">
-          <CardTitle>
+          <div className="flex-1">
             <div className="flex items-center justify-end gap-4">
-              Blogs
-              <span className="inline-block lg:hidden">
-                <Icons.Lucide.SquareArrowOutUpRight />
+              <CardTitle className="">Blogs</CardTitle>
+              <span className="inline-block md:hidden">
+                <Icons.Lucide.SquareArrowOutUpRight size={20} />
               </span>
             </div>
-          </CardTitle>
+          </div>
 
           <CardSubtitle>
             If your are interested in my opinions, check out my blogs. I mainly
@@ -140,12 +142,7 @@ function CardTitle({
   className?: string;
 }) {
   return (
-    <h1
-      className={cn(
-        "flex-1 text-right text-3xl font-bold lg:text-5xl",
-        className
-      )}
-    >
+    <h1 className={cn("text-right text-3xl font-bold md:text-5xl", className)}>
       {children}
     </h1>
   );
