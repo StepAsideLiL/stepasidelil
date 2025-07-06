@@ -9,8 +9,8 @@ import {
 } from "@workspace/design-system/ui/card";
 import Link from "next/link";
 import { Badge } from "@workspace/design-system/ui/badge";
-import { CopyEmail } from "@/components/client-components";
 import { cn } from "@workspace/design-system/lib/utils";
+import CopyEmail from "@/components/CopyEmail";
 
 export const about =
   "I am a passionate web developer building cool projects with Nextjs and other JavaScript-based libraries. With a background in Engineering, I bring well-rounded problem-solving skills for developing websites and web apps with a sharp eye for UI/UX design.";

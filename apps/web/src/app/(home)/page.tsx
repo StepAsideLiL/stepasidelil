@@ -1,4 +1,4 @@
-import { CopyEmail } from "@/components/client-components";
+import CopyEmail from "@/components/CopyEmail";
 import { email, socialLinks } from "@/components/portfolio-info-ui";
 import ProfileImage from "@/components/ProfileImage";
 import nextMetadata from "@/lib/next-metadata";
