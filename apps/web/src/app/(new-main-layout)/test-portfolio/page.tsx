@@ -1,21 +1,44 @@
 import CopyEmail from "@/components/CopyEmail";
 import portfoilioInfo from "@/lib/portfolio-info";
+import Icons from "@workspace/design-system/icons";
 import { cn } from "@workspace/design-system/lib/utils";
+import { Badge } from "@workspace/design-system/ui/badge";
 import Link from "next/link";
 
 export default function Page() {
   return (
-    <div className="grid grid-cols-3 gap-5 py-2">
+    <div className="grid grid-cols-3 grid-rows-3 gap-5 py-2">
       <Fieldset
-        title={portfoilioInfo.introduction.intro.title}
-        className="col-span-3"
+        title={portfoilioInfo.introduction.title}
+        className="col-span-1"
         center
       >
-        <div>{portfoilioInfo.introduction.intro.content}</div>
+        <div>{portfoilioInfo.introduction.content}</div>
       </Fieldset>
 
-      <Fieldset title={portfoilioInfo.introduction.about.title}>
-        <div>{portfoilioInfo.introduction.about.content}</div>
+      <Fieldset title="Projects" className="col-span-1 row-span-2">
+        <div className="space-y-5">
+          {portfoilioInfo.projects.map((list) => (
+            <div key={list?.slugAsParams} className="space-y-2">
+              <Link
+                href={`/projects/${list?.slugAsParams}`}
+                className="flex items-center gap-2 hover:underline"
+                target="_blank"
+              >
+                <h1 className="text-xl">{list?.title}</h1>
+                <Icons.Lucide.SquareArrowOutUpRight size={20} />
+              </Link>
+
+              <div className="flex items-center gap-2">
+                {list?.tags.map((tag) => (
+                  <Badge key={tag} className="text-xs">
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </Fieldset>
 
       <Fieldset title="Contact">
@@ -38,7 +61,7 @@ export default function Page() {
         </div>
       </Fieldset>
 
-      <Fieldset title="Techinologies I Am Useing">
+      <Fieldset title="Techinologies I Am Using">
         <div className="flex gap-2">
           {portfoilioInfo.skills.topSkills.map((list) => (
             <span key={list.title}>
@@ -58,7 +81,27 @@ export default function Page() {
         </div>
       </Fieldset>
 
-      <Fieldset title="Education" className="col-span-2">
+      <Fieldset title="Techinologies I Am Interested In">
+        <div className="flex gap-2">
+          {portfoilioInfo.skills.technologiesIInterestedIn.map((list) => (
+            <span key={list.title}>
+              {list.color === "#000000" || list.color === "#ffffff" ? (
+                <list.icon
+                  size={44}
+                  className={cn(
+                    list.color === "#000000" ||
+                      (list.color === "#ffffff" && "text-black dark:text-white")
+                  )}
+                />
+              ) : (
+                <list.icon size={44} color={list.color} />
+              )}
+            </span>
+          ))}
+        </div>
+      </Fieldset>
+
+      <Fieldset title="Education" className="col-span-3">
         <div className="space-y-5">
           {portfoilioInfo.educations.universities.map((list, i) => (
             <div key={i} className="space-y-2">
@@ -84,26 +127,6 @@ export default function Page() {
                 {list.institution}
               </p>
             </div>
-          ))}
-        </div>
-      </Fieldset>
-
-      <Fieldset title="Techinologies I Am Interested In">
-        <div className="flex gap-2">
-          {portfoilioInfo.skills.technologiesIInterestedIn.map((list) => (
-            <span key={list.title}>
-              {list.color === "#000000" || list.color === "#ffffff" ? (
-                <list.icon
-                  size={44}
-                  className={cn(
-                    list.color === "#000000" ||
-                      (list.color === "#ffffff" && "text-black dark:text-white")
-                  )}
-                />
-              ) : (
-                <list.icon size={44} color={list.color} />
-              )}
-            </span>
           ))}
         </div>
       </Fieldset>
