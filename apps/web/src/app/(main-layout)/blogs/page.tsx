@@ -22,20 +22,24 @@ export default function Page() {
   }
 
   return (
-    <>
-      {data.blogs.map((blog) => (
-        <Link
-          key={blog.slug}
-          href={blog.permalink}
-          className="text-muted-foreground/60 hover:text-foreground block space-y-1 py-3 transition-colors"
-        >
-          <h1 className={cn("text-4xl", yesevaOne.className)}>{blog.title}</h1>
+    <div className="grid grid-cols-4 gap-5 py-10">
+      <div className="col-span-4 md:col-span-3 lg:col-span-2 lg:col-start-2">
+        {data.blogs.map((blog) => (
+          <Link
+            key={blog.slug}
+            href={`/blogs/${blog.slugAsParams}`}
+            className="text-muted-foreground/60 hover:text-foreground block space-y-1 py-3 transition-colors"
+          >
+            <h1 className={cn("text-4xl", yesevaOne.className)}>
+              {blog.title}
+            </h1>
 
-          <p className={cn(yesevaOne.className)}>
-            {format(new Date(blog.date), "dd MMMM, yyyy")}
-          </p>
-        </Link>
-      ))}
-    </>
+            <p className={cn(yesevaOne.className)}>
+              {format(new Date(blog.date), "dd MMMM, yyyy")}
+            </p>
+          </Link>
+        ))}
+      </div>
+    </div>
   );
 }

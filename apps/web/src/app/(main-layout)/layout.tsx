@@ -10,7 +10,7 @@ export default function Layout({
     <div className="flex min-h-screen flex-col">
       <MainNavbar />
 
-      <main className={"mx-auto max-w-3xl flex-1 px-10 py-10"}>{children}</main>
+      <main className={"flex-1 px-5"}>{children}</main>
 
       <MainFooter />
     </div>

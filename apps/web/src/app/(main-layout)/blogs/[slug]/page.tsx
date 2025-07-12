@@ -6,6 +6,7 @@ import nextMetadata from "@/lib/next-metadata";
 import { cn } from "@workspace/design-system/lib/utils";
 import { format } from "date-fns";
 import { Metadata } from "next";
+import TableOfContents from "@/components/TableOfContents";
 
 type BlogPageProps = { params: Promise<{ slug: string }> };
 
@@ -33,23 +34,29 @@ export default async function Page({ params }: BlogPageProps) {
   }
 
   return (
-    <>
-      <div className="space-y-2">
-        <p>{format(new Date(blog.date), "dd MMMM, yyyy")}</p>
+    <div className="grid grid-cols-4 gap-5 py-10">
+      <div className="col-span-4 col-start-1 md:col-span-3 lg:col-span-2 lg:col-start-2">
+        <div className="space-y-2">
+          <p>{format(new Date(blog.date), "dd MMMM, yyyy")}</p>
 
-        {blog.tags.map((tag, i) => (
-          <Badge key={i} variant={"secondary"}>
-            {tag}
-          </Badge>
-        ))}
+          {blog.tags.map((tag, i) => (
+            <Badge key={i} variant={"secondary"}>
+              {tag}
+            </Badge>
+          ))}
+        </div>
+
+        <h1 className={cn("py-3 text-5xl font-bold", yesevaOne.className)}>
+          {blog.title}
+        </h1>
+        <div className="">
+          <MDXContent content={blog.content} />
+        </div>
       </div>
 
-      <h1 className={cn("py-3 text-5xl font-bold", yesevaOne.className)}>
-        {blog.title}
-      </h1>
-      <div className="">
-        <MDXContent content={blog.content} />
+      <div className="col-span-1 hidden md:block">
+        <TableOfContents toc={blog.toc} />
       </div>
-    </>
+    </div>
   );
 }

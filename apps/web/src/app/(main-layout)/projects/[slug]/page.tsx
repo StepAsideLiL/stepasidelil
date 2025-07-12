@@ -1,4 +1,5 @@
 import MDXContent from "@/components/mdx-components";
+import TableOfContents from "@/components/TableOfContents";
 import data from "@/lib/data";
 import { yesevaOne } from "@/lib/fonts";
 import nextMetadata from "@/lib/next-metadata";
@@ -23,7 +24,7 @@ export default async function Page({ params }: ProjectPageProps) {
 
   if (!project) {
     return (
-      <div>
+      <div className="mx-auto w-full max-w-3xl py-10">
         <h1 className="text-muted-foreground text-center text-2xl">
           No Project Found!
         </h1>
@@ -32,25 +33,29 @@ export default async function Page({ params }: ProjectPageProps) {
   }
 
   return (
-    <>
-      <div className="space-y-2">
-        {/* <p>{format(new Date(blog.date), "dd MMMM, yyyy")}</p> */}
+    <div className="grid grid-cols-4 gap-5 py-10">
+      <div className="col-span-4 col-start-1 md:col-span-3 lg:col-span-2 lg:col-start-2">
+        <div className="space-y-2">
+          <div className="flex items-center gap-1">
+            {project.tags.map((tag, i) => (
+              <Badge key={i} variant={"secondary"}>
+                {tag}
+              </Badge>
+            ))}
+          </div>
+        </div>
 
-        <div className="flex items-center gap-1">
-          {project.tags.map((tag, i) => (
-            <Badge key={i} variant={"secondary"}>
-              {tag}
-            </Badge>
-          ))}
+        <h1 className={cn("py-3 text-5xl font-bold", yesevaOne.className)}>
+          {project.title}
+        </h1>
+        <div className="">
+          <MDXContent content={project.content} />
         </div>
       </div>
 
-      <h1 className={cn("py-3 text-5xl font-bold", yesevaOne.className)}>
-        {project.title}
-      </h1>
-      <div className="">
-        <MDXContent content={project.content} />
+      <div className="col-span-1 hidden md:block">
+        <TableOfContents toc={project.toc} />
       </div>
-    </>
+    </div>
   );
 }
