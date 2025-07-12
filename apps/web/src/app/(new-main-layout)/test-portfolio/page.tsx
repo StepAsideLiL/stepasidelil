@@ -3,6 +3,11 @@ import portfoilioInfo from "@/lib/portfolio-info";
 import Icons from "@workspace/design-system/icons";
 import { cn } from "@workspace/design-system/lib/utils";
 import { Badge } from "@workspace/design-system/ui/badge";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@workspace/design-system/ui/tooltip";
 import Link from "next/link";
 
 export default function Page() {
@@ -66,15 +71,30 @@ export default function Page() {
           {portfoilioInfo.skills.topSkills.map((list) => (
             <span key={list.title}>
               {list.color === "#000000" || list.color === "#ffffff" ? (
-                <list.icon
-                  size={44}
-                  className={cn(
-                    list.color === "#000000" ||
-                      (list.color === "#ffffff" && "text-black dark:text-white")
-                  )}
-                />
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <list.icon
+                      size={44}
+                      className={cn(
+                        list.color === "#000000" ||
+                          (list.color === "#ffffff" &&
+                            "text-black dark:text-white")
+                      )}
+                    />
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{list.title}</p>
+                  </TooltipContent>
+                </Tooltip>
               ) : (
-                <list.icon size={44} color={list.color} />
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <list.icon size={44} color={list.color} />
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{list.title}</p>
+                  </TooltipContent>
+                </Tooltip>
               )}
             </span>
           ))}
@@ -86,15 +106,30 @@ export default function Page() {
           {portfoilioInfo.skills.technologiesIInterestedIn.map((list) => (
             <span key={list.title}>
               {list.color === "#000000" || list.color === "#ffffff" ? (
-                <list.icon
-                  size={44}
-                  className={cn(
-                    list.color === "#000000" ||
-                      (list.color === "#ffffff" && "text-black dark:text-white")
-                  )}
-                />
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <list.icon
+                      size={44}
+                      className={cn(
+                        list.color === "#000000" ||
+                          (list.color === "#ffffff" &&
+                            "text-black dark:text-white")
+                      )}
+                    />
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{list.title}</p>
+                  </TooltipContent>
+                </Tooltip>
               ) : (
-                <list.icon size={44} color={list.color} />
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <list.icon size={44} color={list.color} />
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{list.title}</p>
+                  </TooltipContent>
+                </Tooltip>
               )}
             </span>
           ))}
