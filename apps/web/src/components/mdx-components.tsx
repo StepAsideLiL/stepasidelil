@@ -51,10 +51,7 @@ const components = {
     />
   ),
   p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
-    <p
-      className={cn("leading-7 [&:not(:first-child)]:mt-6", className)}
-      {...props}
-    />
+    <p className={cn("leading-7", className)} {...props} />
   ),
   ol: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
     <ol className={cn("list-inside list-decimal", className)} {...props} />
