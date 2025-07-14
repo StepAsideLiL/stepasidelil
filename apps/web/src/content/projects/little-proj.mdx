@@ -38,3 +38,30 @@ pnpm dev
 ```
 
 4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Workspace Packages
+
+`Little Proj` is a monorepo, which means that it consists of multiple packages. This workspace has the following packages:
+
+- `apps/web`: This is the main application. It is a Next.js application.
+- `packages/design-system`: This is a shared library for UI components.
+- `packages/eslint-config`: This package contains eslint configurations for the project.
+- `packages/typescript-config`: This package contains typescript configurations for the project.
+
+### `apps/web` package
+
+This is the main website or webapp of the workspace. It is a Next.js application. This template of Nextjs comes with some useful features like:
+
+- Dark mode support and `SwitchThemeButton` component to toggle between dark and light mode.
+- `loading.tsx` compoment for loading state and `not-found.tsx` component for invalid links.
+- In the `lib` directory, there are `baseUrl` content, `fonts` object, `nextMetadata` function and `siteConfig` object.
+- `nextMetadata` function provide easist way to add metadata with favicon and Open Graph image.
+- Open Graph image is generated from `/api/og/route.tsx` api route.
+- In the `public` directory, there are three folders: `fonts` for Open Graph image font, `icons` for favicon, and `images` for images like `404.webp`. And One file: `site.webmanifest` for the website manifest.
+
+{/* Todos */}
+{/* explain files that needs to modify (public/icons and public/site.webmifest) */}
+{/* explain different workspaces */}
+{/* explain different packages */}
+{/* explain design system and its exports */}
+{/* explain web and its libs, components, and providers */}

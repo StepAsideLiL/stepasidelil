@@ -43,24 +43,45 @@ const components = {
       {...props}
     />
   ),
-  a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
+  a: ({
+    className,
+    ...props
+  }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
     <a
       className={cn("underline underline-offset-4", className)}
-      target="_blank"
+      target={props.href?.includes("http") ? "_blank" : "_self"}
       {...props}
     />
   ),
   p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
-    <p className={cn("leading-7", className)} {...props} />
+    <p
+      className={cn("text-muted-foreground leading-7", className)}
+      {...props}
+    />
   ),
   ol: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
-    <ol className={cn("list-inside list-decimal", className)} {...props} />
+    <ol
+      className={cn(
+        "text-muted-foreground list-inside list-decimal",
+        className
+      )}
+      {...props}
+    />
   ),
   ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
-    <ul className={cn("list-inside list-disc", className)} {...props} />
+    <ul
+      className={cn("text-muted-foreground list-inside list-disc", className)}
+      {...props}
+    />
   ),
   code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
-    <code className={cn("font-mono", className)} {...props} />
+    <code
+      className={cn(
+        "bg-muted text-foreground rounded-xs px-1 py-0.5 font-mono text-sm",
+        className
+      )}
+      {...props}
+    />
   ),
   pre: ({ className, ...props }: React.HTMLAttributes<HTMLPreElement>) => {
     const child = props.children as React.ReactElement;

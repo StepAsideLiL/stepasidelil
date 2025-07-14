@@ -1,5 +1,4 @@
 import blogs from "#blogs";
-import portfolio from "#portfolio";
 import projects from "#project";
 
 const data = {
@@ -7,9 +6,6 @@ const data = {
   projects,
   getBlogBySlug(slug: string) {
     return this.blogs.find((blog) => blog.slugAsParams === slug);
-  },
-  getPortfolio() {
-    return portfolio;
   },
   getProjects() {
     return projects;

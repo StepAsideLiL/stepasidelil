@@ -16,7 +16,7 @@ type TTableOfContents = TTableOfContentsItem[];
 
 export default function TableOfContents({ toc }: { toc: TTableOfContents }) {
   return (
-    <div className="space-y-3">
+    <div className="text-muted-foreground space-y-3">
       <h2 className="text-lg">Table of Contents</h2>
 
       <nav className="text-sm">
