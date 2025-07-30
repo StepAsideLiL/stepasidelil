@@ -34,7 +34,7 @@ const TableOfContentsItem: React.FC<TTableOfContentsItemItemProps> = ({
   item,
   depth,
 }) => {
-  const indentClasses = ["ml-0", "ml-4", "ml-8", "ml-12", "ml-16"];
+  const indentClasses = ["ml-0", "ml-4", "ml-4", "ml-4", "ml-4"];
   const indent =
     depth < indentClasses.length
       ? indentClasses[depth]
