@@ -10,6 +10,7 @@ import {
 } from "@/components/portfolio-info-ui";
 import { isValidElement, ReactElement } from "react";
 import CopyButton from "@/components/CopyButton";
+import Icons from "@workspace/design-system/icons";
 
 type MdxProps = {
   content: string;
@@ -19,29 +20,98 @@ const components = {
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       className={cn(
-        "font-heading mt-2 scroll-m-20 text-4xl font-bold",
+        "group mt-2 mb-5 flex scroll-m-20 items-center gap-2 text-5xl font-bold",
         className
       )}
       {...props}
-    />
+    >
+      {props.children}
+
+      <Icons.Lucide.Link
+        size={36}
+        className="text-muted-foreground hidden group-hover:inline-block"
+      />
+    </h1>
   ),
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       className={cn(
-        "font-heading mt-12 scroll-m-20 pb-2 text-2xl font-semibold tracking-tight first:mt-0",
+        "group mt-2 mb-5 flex scroll-m-20 items-center gap-2 text-4xl font-bold",
         className
       )}
       {...props}
-    />
+    >
+      {props.children}
+
+      <Icons.Lucide.Link
+        size={26}
+        className="text-muted-foreground hidden group-hover:inline-block"
+      />
+    </h2>
   ),
   h3: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h3
       className={cn(
-        "font-heading mt-8 scroll-m-20 text-lg font-semibold tracking-tight",
+        "group mt-2 mb-5 flex scroll-m-20 items-center gap-2 text-3xl font-bold",
         className
       )}
       {...props}
-    />
+    >
+      {props.children}
+
+      <Icons.Lucide.Link
+        size={20}
+        className="text-muted-foreground hidden group-hover:inline-block"
+      />
+    </h3>
+  ),
+  h4: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+    <h4
+      className={cn(
+        "group mt-2 mb-5 flex scroll-m-20 items-center gap-2 text-2xl font-bold",
+        className
+      )}
+      {...props}
+    >
+      {props.children}
+
+      <Icons.Lucide.Link
+        size={18}
+        className="text-muted-foreground hidden group-hover:inline-block"
+      />
+    </h4>
+  ),
+  h5: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+    <h5
+      className={cn(
+        "group mt-2 mb-5 flex scroll-m-20 items-center gap-2 text-xl font-bold",
+        className
+      )}
+      {...props}
+    >
+      {props.children}
+
+      <Icons.Lucide.Link
+        size={16}
+        className="text-muted-foreground hidden group-hover:inline-block"
+      />
+    </h5>
+  ),
+  h6: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+    <h6
+      className={cn(
+        "group mt-2 mb-5 flex scroll-m-20 items-center gap-2 text-lg font-bold",
+        className
+      )}
+      {...props}
+    >
+      {props.children}
+
+      <Icons.Lucide.Link
+        size={14}
+        className="text-muted-foreground hidden group-hover:inline-block"
+      />
+    </h6>
   ),
   a: ({
     className,
