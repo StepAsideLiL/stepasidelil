@@ -8,7 +8,9 @@ const data = {
     return this.blogs.find((blog) => blog.slugAsParams === slug);
   },
   getProjects() {
-    return projects;
+    return projects
+      .sort((a, b) => parseInt(b.sort) - parseInt(a.sort))
+      .filter((project) => project.published);
   },
   getProjectBySlug(slug: string) {
     return this.projects.find((project) => project.slugAsParams === slug);

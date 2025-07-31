@@ -33,6 +33,8 @@ const projects = defineCollection({
       title: s.string(),
       slug: s.path(),
       description: s.string().max(999).optional(),
+      sort: s.string().optional().default("0"),
+      published: s.boolean().default(true),
       githubLink: s.string().optional(),
       tags: s.array(s.string()).optional(),
       metadata: s.metadata(), // extract markdown reading-time, word-count, etc.
