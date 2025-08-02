@@ -6,10 +6,12 @@ import { projects } from "./projects";
 import { educations } from "./educations";
 import { introduction } from "./introduction";
 import { allSkills } from "./all-skills";
+import { social } from "./social";
 
 const portfoilioInfo = {
   introduction,
   email,
+  social,
   socialLinks,
   skills: {
     allSkills,
