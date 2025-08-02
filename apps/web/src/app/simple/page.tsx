@@ -74,9 +74,14 @@ export default function Page() {
             <Link
               key={blog.slug}
               href={`/blogs/${blog.slugAsParams}`}
-              className="group bg-muted flex items-center justify-between space-y-1 px-2 py-1"
+              className="group bg-muted flex items-start justify-between space-y-1 px-2 py-1"
             >
-              <h2 className="group-hover:underline">{blog.title}</h2>
+              <div>
+                <h2 className="group-hover:underline">{blog.title}</h2>
+                <p className="text-muted-foreground text-sm">
+                  {blog.description}
+                </p>
+              </div>
               <p className="text-muted-foreground">
                 {fDate.format(blog.date, "LLLL d, yyyy")}
               </p>
