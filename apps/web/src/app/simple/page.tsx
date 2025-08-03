@@ -50,7 +50,12 @@ export default function Page() {
       </section>
 
       <section className="space-y-3">
-        <h3 className="text-muted-foreground/80">Projects</h3>
+        <h3 className="text-muted-foreground/80 group w-fit">
+          <Link href="/projects" className="flex items-center gap-2">
+            <span>Projects</span>
+            <Icons.Lucide.ExternalLink size={16} />
+          </Link>
+        </h3>
 
         <div className="grid grid-cols-2 gap-5">
           {data.getProjects().map((project) => (
@@ -67,7 +72,12 @@ export default function Page() {
       </section>
 
       <section className="space-y-3">
-        <h3 className="text-muted-foreground/80">Blogs</h3>
+        <h3 className="text-muted-foreground/80 group w-fit">
+          <Link href="/blogs" className="flex items-center gap-2">
+            <span>Blogs</span>
+            <Icons.Lucide.ExternalLink size={16} />
+          </Link>
+        </h3>
 
         <div className="space-y-1">
           {data.blogs.map((blog) => (
