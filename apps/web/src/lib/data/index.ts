@@ -4,6 +4,11 @@ import projects from "#project";
 const data = {
   blogs,
   projects,
+  getBlogs() {
+    return blogs
+      .filter((blog) => blog.published)
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  },
   getBlogBySlug(slug: string) {
     return this.blogs.find((blog) => blog.slugAsParams === slug);
   },

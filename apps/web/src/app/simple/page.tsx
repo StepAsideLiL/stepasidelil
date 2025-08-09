@@ -80,7 +80,7 @@ export default function Page() {
         </h3>
 
         <div className="space-y-1">
-          {data.blogs.map((blog) => (
+          {data.getBlogs().map((blog) => (
             <Link
               key={blog.slug}
               href={`/blogs/${blog.slugAsParams}`}
