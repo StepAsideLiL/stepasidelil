@@ -125,7 +125,7 @@ const components = {
   ),
   p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p
-      className={cn("text-muted-foreground my-2 leading-7", className)}
+      className={cn("text-muted-foreground my-5 leading-6", className)}
       {...props}
     />
   ),
