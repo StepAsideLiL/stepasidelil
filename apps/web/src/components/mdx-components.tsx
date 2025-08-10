@@ -116,13 +116,25 @@ const components = {
   a: ({
     className,
     ...props
-  }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
-    <a
-      className={cn("underline underline-offset-4", className)}
-      target={props.href?.includes("http") ? "_blank" : "_self"}
-      {...props}
-    />
-  ),
+  }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
+    if (props.href?.startsWith("#")) {
+      return (
+        <a
+          className={cn(className)}
+          target={props.href?.includes("http") ? "_blank" : "_self"}
+          {...props}
+        />
+      );
+    }
+
+    return (
+      <a
+        className={cn("underline underline-offset-4", className)}
+        target={props.href?.includes("http") ? "_blank" : "_self"}
+        {...props}
+      />
+    );
+  },
   p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p
       className={cn("text-muted-foreground my-5 leading-6", className)}
