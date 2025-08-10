@@ -11,6 +11,8 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function Page() {
+  const blogs = data.getBlogs();
+
   if (data.blogs.length === 0) {
     return (
       <div>
@@ -24,7 +26,7 @@ export default function Page() {
   return (
     <div className="grid grid-cols-4 gap-5 py-10">
       <div className="col-span-4 md:col-span-3 lg:col-span-2 lg:col-start-2">
-        {data.blogs.map((blog) => (
+        {blogs.map((blog) => (
           <Link
             key={blog.slug}
             href={`/blogs/${blog.slugAsParams}`}
