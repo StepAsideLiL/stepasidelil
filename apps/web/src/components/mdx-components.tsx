@@ -16,37 +16,49 @@ type MdxProps = {
   content: string;
 };
 
+function HeaderLinkIcon({
+  size,
+  className,
+}: {
+  size: number;
+  className?: string;
+}) {
+  return (
+    <Icons.Lucide.Link
+      size={size}
+      className={cn(
+        "text-muted-foreground opacity-0 peer-hover:opacity-100",
+        className
+      )}
+    />
+  );
+}
+
 const components = {
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       className={cn(
-        "group mt-2 mb-5 flex scroll-m-20 items-center gap-2 text-5xl font-bold",
+        "mt-2 mb-5 flex w-fit scroll-m-20 items-center gap-2 text-5xl font-bold",
         className
       )}
       {...props}
     >
       {props.children}
 
-      <Icons.Lucide.Link
-        size={36}
-        className="text-muted-foreground hidden group-hover:inline-block"
-      />
+      <HeaderLinkIcon size={36} />
     </h1>
   ),
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       className={cn(
-        "group mt-2 mb-5 flex scroll-m-20 items-center gap-2 text-4xl font-bold",
+        "mt-2 mb-5 flex w-fit scroll-m-20 items-center gap-2 text-4xl font-bold",
         className
       )}
       {...props}
     >
       {props.children}
 
-      <Icons.Lucide.Link
-        size={26}
-        className="text-muted-foreground hidden group-hover:inline-block"
-      />
+      <HeaderLinkIcon size={26} />
     </h2>
   ),
   h3: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
@@ -59,10 +71,7 @@ const components = {
     >
       {props.children}
 
-      <Icons.Lucide.Link
-        size={20}
-        className="text-muted-foreground hidden group-hover:inline-block"
-      />
+      <HeaderLinkIcon size={20} />
     </h3>
   ),
   h4: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
@@ -75,10 +84,7 @@ const components = {
     >
       {props.children}
 
-      <Icons.Lucide.Link
-        size={18}
-        className="text-muted-foreground hidden group-hover:inline-block"
-      />
+      <HeaderLinkIcon size={18} />
     </h4>
   ),
   h5: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
@@ -91,10 +97,7 @@ const components = {
     >
       {props.children}
 
-      <Icons.Lucide.Link
-        size={16}
-        className="text-muted-foreground hidden group-hover:inline-block"
-      />
+      <HeaderLinkIcon size={16} />
     </h5>
   ),
   h6: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
@@ -107,10 +110,7 @@ const components = {
     >
       {props.children}
 
-      <Icons.Lucide.Link
-        size={14}
-        className="text-muted-foreground hidden group-hover:inline-block"
-      />
+      <HeaderLinkIcon size={14} />
     </h6>
   ),
   a: ({
@@ -118,19 +118,13 @@ const components = {
     ...props
   }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
     if (props.href?.startsWith("#")) {
-      return (
-        <a
-          className={cn(className)}
-          target={props.href?.includes("http") ? "_blank" : "_self"}
-          {...props}
-        />
-      );
+      return <a className={cn("peer", className)} {...props} />;
     }
 
     return (
       <a
         className={cn("underline underline-offset-4", className)}
-        target={props.href?.includes("http") ? "_blank" : "_self"}
+        target="_blank"
         {...props}
       />
     );
