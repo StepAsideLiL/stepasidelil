@@ -23,22 +23,19 @@ export default async function Page() {
   }
 
   return (
-    <div className="grid grid-cols-4 gap-5 py-10">
-      <div className="col-span-4 md:col-span-3 lg:col-span-2 lg:col-start-2">
+    <div className="py-10">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
         {projects.map((project) => (
           <Link
             key={project.slug}
-            href={`/projects/${project.slugAsParams}`}
-            className="text-muted-foreground/60 hover:text-foreground block space-y-1 py-3 transition-colors"
+            href={project.githubLink}
+            className="text-muted-foreground/60 hover:text-foreground block space-y-1 border p-5 py-3 transition-colors"
           >
             <h1 className={cn("text-4xl", yesevaOne.className)}>
               {project.title}
             </h1>
 
-            <p className={cn(yesevaOne.className)}>
-              {/* {date.format(new Date(blog.date), "dd MMMM, yyyy")} */}
-              {project.description}
-            </p>
+            <p className={cn(yesevaOne.className)}>{project.description}</p>
           </Link>
         ))}
       </div>
