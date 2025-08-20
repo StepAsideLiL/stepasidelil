@@ -1,159 +1,115 @@
-import CopyEmail from "@/components/CopyEmail";
-import { email, socialLinks } from "@/components/portfolio-info-ui";
 import ProfileImage from "@/components/ProfileImage";
-import nextMetadata from "@/lib/next-metadata";
+import data from "@/lib/data";
+import portfoilioInfo from "@/lib/portfolio-info";
 import Icons from "@workspace/design-system/icons";
-import { cn } from "@workspace/design-system/lib/utils";
-import { Metadata } from "next";
 import Link from "next/link";
-
-export async function generateMetadata(): Promise<Metadata> {
-  return nextMetadata("Home Page");
-}
+import * as fDate from "date-fns";
 
 export default function Page() {
   return (
-    <div className="grid w-full flex-grow grid-cols-2 grid-rows-2 gap-0 lg:grid-cols-3 xl:gap-10">
-      <Card className="col-span-2 row-span-2 flex-col md:flex-row lg:col-span-1 lg:flex-col">
-        <div className="flex-1 space-y-5">
-          <div className="flex items-center gap-5">
-            <ProfileImage size={60} />
-
-            <div>
-              <h3 className="text-2xl font-semibold">Rifat Khan</h3>
-              <p className="text-muted-foreground">Web Developer</p>
-            </div>
-          </div>
+    <main className="mx-auto w-full max-w-3xl space-y-10 py-20">
+      <section className="flex items-center justify-between">
+        <div className="flex items-center gap-5">
+          <ProfileImage size={40} />
+          <h1 className="text-3xl font-bold">Rifat Khan</h1>
         </div>
 
-        <div className="space-y-5">
-          <CopyEmail email={email} />
-
-          <div className="flex flex-col gap-2">
-            {socialLinks.map((list) => (
-              <span key={list.href} className="flex items-center gap-2">
-                <list.icon size={20} />
-                <Link
-                  href={list.href}
-                  className="hover:underline"
-                  target="_blank"
-                >
-                  {list.username}
-                </Link>
-              </span>
-            ))}
-          </div>
+        <div className="flex items-center gap-5">
+          <Link href={portfoilioInfo.social.github.href}>
+            <portfoilioInfo.social.github.icon size={28} />
+          </Link>
         </div>
-      </Card>
+      </section>
 
-      <LinkCard
-        href="/portfolio"
-        title="Portfolio"
-        subtitle="If your are interested to know about me, you can check my portfolio."
-        className="col-span-2 row-span-2 md:col-span-1"
-      />
+      <section>
+        <h2 className="text-foreground/80">
+          👋 hello, I am Rifat - software engineer building small and awesome
+          apps.
+        </h2>
+      </section>
 
-      <LinkCard
-        href="/blogs"
-        title="Blogs"
-        subtitle="If your are interested in my opinions, check out my blogs. I mainly
-            talk about Web Development. But who knows, maybe I will talk about
-            something else."
-        className="col-span-2 row-span-1 md:col-span-1"
-      />
+      <section>
+        <div className="text-muted-foreground flex items-center gap-2">
+          <Icons.Lucide.MapPin size={16} />
+          <span>Gazipur, Bangladesh</span>
+        </div>
 
-      <LinkCard
-        href="/projects"
-        title="Pojects"
-        subtitle="If your are interested in my projects, here is a list of interesting projects that you may find interesting."
-        className="col-span-2 row-span-1 md:col-span-1"
-      />
-    </div>
-  );
-}
-
-function LinkCard({
-  href,
-  title,
-  subtitle,
-  className,
-}: {
-  href: string;
-  title: string;
-  subtitle: string;
-  className?: string;
-}) {
-  return (
-    <Card href={href} className={cn(className)}>
-      <div className="flex-1">
-        <div className="flex items-center justify-end gap-4">
-          <CardTitle>{title}</CardTitle>
-          <span className="inline-block md:hidden">
-            <Icons.Lucide.SquareArrowOutUpRight size={20} />
+        <div className="text-muted-foreground flex items-center gap-2">
+          <Icons.Lucide.GraduationCap size={16} />
+          <span>
+            B.Sc. in Electrical and Electronic Engineering from JKKNIU
           </span>
         </div>
-      </div>
+      </section>
 
-      <CardSubtitle>{subtitle}</CardSubtitle>
-    </Card>
+      <section>
+        <p className="text-foreground/80">
+          I am a JavaScript and TypeScript developer. I love to build small apps
+          with web technology. Interested in Rust and Go lang too.
+        </p>
+      </section>
+
+      <section className="space-y-3">
+        <h3 className="text-muted-foreground/80 group w-fit">
+          <Link href="/projects" className="flex items-center gap-2">
+            <span>Projects</span>
+            <Icons.Lucide.ExternalLink size={16} />
+          </Link>
+        </h3>
+
+        <div className="grid grid-cols-2 gap-5">
+          {data.getProjects(4).map((project) => (
+            <Link
+              key={project.slug}
+              href={`/projects/${project.slugAsParams}`}
+              className="group space-y-1"
+            >
+              <h2 className="group-hover:underline">{project.title}</h2>
+              <p className="text-muted-foreground">{project.description}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-3">
+        <h3 className="text-muted-foreground/80 group w-fit">
+          <Link href="/blogs" className="flex items-center gap-2">
+            <span>Blogs</span>
+            <Icons.Lucide.ExternalLink size={16} />
+          </Link>
+        </h3>
+
+        <div className="space-y-1">
+          {data.getBlogs(5).map((blog) => (
+            <Link
+              key={blog.slug}
+              href={`/blogs/${blog.slugAsParams}`}
+              className="group bg-muted flex items-start justify-between space-y-1 px-2 py-1"
+            >
+              <div>
+                <h2 className="group-hover:underline">{blog.title}</h2>
+                <p className="text-muted-foreground text-sm">
+                  {blog.description}
+                </p>
+              </div>
+              <p className="text-muted-foreground">
+                {fDate.format(blog.date, "LLLL d, yyyy")}
+              </p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <div className="flex items-center gap-2">
+          <span>Socials -</span>
+          {portfoilioInfo.socialLinks.map((list) => (
+            <Link key={list.href} href={list.href}>
+              <list.icon size={24} />
+            </Link>
+          ))}
+        </div>
+      </section>
+    </main>
   );
-}
-
-function Card({
-  children,
-  className,
-  href = "",
-}: {
-  children?: React.ReactNode;
-  className?: string;
-  href?: string;
-}) {
-  if (!href) {
-    return (
-      <div
-        className={cn(
-          "hover:bg-foreground hover:text-background flex w-full flex-1 flex-col gap-10 border p-10 transition-colors",
-          className
-        )}
-      >
-        {children}
-      </div>
-    );
-  }
-
-  return (
-    <Link
-      href={href}
-      className={cn(
-        "hover:bg-foreground hover:text-background flex w-full flex-1 flex-col gap-10 border p-10 transition-colors",
-        className
-      )}
-    >
-      {children}
-    </Link>
-  );
-}
-
-function CardTitle({
-  children,
-  className,
-}: {
-  children?: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <h1 className={cn("text-right text-3xl font-bold md:text-5xl", className)}>
-      {children}
-    </h1>
-  );
-}
-
-function CardSubtitle({
-  children,
-  className,
-}: {
-  children?: React.ReactNode;
-  className?: string;
-}) {
-  return <p className={cn("text-sm", className)}>{children}</p>;
 }
