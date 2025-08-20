@@ -6,10 +6,6 @@ import { usePathname } from "next/navigation";
 
 const navList = [
   {
-    title: "Portfolio",
-    href: "/portfolio",
-  },
-  {
     title: "Blogs",
     href: "/blogs",
   },
