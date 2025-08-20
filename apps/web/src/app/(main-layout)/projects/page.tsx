@@ -30,6 +30,7 @@ export default async function Page() {
             key={project.slug}
             href={project.githubLink}
             className="text-muted-foreground/60 hover:text-foreground block space-y-1 border p-5 py-3 transition-colors"
+            target="_blank"
           >
             <h1 className={cn("text-4xl", yesevaOne.className)}>
               {project.title}
