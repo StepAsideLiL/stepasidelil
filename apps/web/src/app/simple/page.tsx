@@ -44,7 +44,7 @@ export default function Page() {
 
       <section>
         <p className="text-foreground/80">
-          I am javascript and typescript developer. I love to build small apps
+          I am a JavaScript and TypeScript developer. I love to build small apps
           with web technology. Interested in Rust and Go lang too.
         </p>
       </section>
